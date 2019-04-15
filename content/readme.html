@@ -1,0 +1,218 @@
+
+<html><head></head><body><p align="center">An easy to use, powerful and multi-functionality tools-kit library for NodeJS written entirely in JavaScript.</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/tools-kit">
+    <img src="https://img.shields.io/npm/v/tools-kit.svg?style=flat-square" alt="npm" style="max-width: 100%;">
+  </a>
+  <a href="https://github.com/BlackB1RD-Development/tools-kit">
+    <img src="https://img.shields.io/github/release/BlackB1RD-Development/tools-kit.svg?style=flat-square" alt="release" style="max-width: 100%;">
+  </a>
+  <a href="https://www.npmjs.com/package/tools-kit">
+    <img src="https://img.shields.io/npm/dt/tools-kit.svg?style=flat-square" alt="downloads" style="max-width: 100%;">
+  </a>
+  <a href="https://www.npmjs.com/package/tools-kit">
+    <img src="https://img.shields.io/node/v/tools-kit.svg?style=flat-square" alt="node" style="max-width: 100%;">
+  </a>
+  <a href="https://david-dm.org/BlackB1RD-Development/tools-kit">
+    <img src="https://david-dm.org/BlackB1RD-Development/tools-kit.svg?style=flat-square" alt="dependencies" style="max-width: 100%;">
+  </a>
+  <a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/LICENSE">
+    <img src="https://img.shields.io/npm/l/tools-kit.svg?style=flat-square" alt="license" style="max-width: 100%;">
+  </a>
+  <a href="https://coveralls.io/github/BlackB1RD-Development/tools-kit?branch=master">
+    <img src="https://coveralls.io/repos/github/BlackB1RD-Development/tools-kit/badge.svg?branch=master" alt="Coverage Status" style="max-width: 100%;">
+  </a>
+  <a href="https://travis-ci.org/BlackB1RD-Development/tools-kit">
+    <img src="https://travis-ci.org/BlackB1RD-Development/tools-kit.svg?branch=master" alt="Build" style="max-width: 100%;">
+  </a>
+  <a href="https://github.com/BlackB1RD-Development/tools-kit">
+    <img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="Code Style" style="max-width: 100%;">
+  </a>
+  <br>
+  <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a> (<b><a href="https://github.com/RealBlackB1RD">@RealBlackB1RD</a></b>). All rights reserved ©</sub>
+</p>
+
+<h2 id="features">Features</h2>
+<hr />
+<ul>
+<li>A <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a> Client that can publish your beautiful code online or fetching an existing one.</li>
+<li>A Logger Manager that can style your logs with all the known Node.js console methods.</li>
+<li>A Color Manager that can style your text in all the possible ways.</li>
+<li>Easy to use and useful utilities that everyone use 😉</li>
+<li>Extremely configurable and debuggable.</li>
+<li>Well documented.</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<hr />
+<pre><code class="console">npm install tools-kit</code></pre>
+<h2 id="class-examples">Class Examples</h2>
+<hr />
+<p>Click to jump between class examples:</p>
+<table>
+<thead>
+<tr>
+<th>Class  Name</th>
+<th>Class Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hastebin Client</td>
+<td>Post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a></td>
+</tr>
+<tr>
+<td>Logger</td>
+<td>Log a styled and colored text into the console</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>Transfer your simple text into a styled and modern one (Console support only)</td>
+</tr>
+<tr>
+<td>Util</td>
+<td>A collection of functions that everyone use in one simple line</td>
+</tr>
+</tbody></table>
+<h2 id="tools-kit-hastebin-client">Tools-Kit Hastebin Client</h2>
+<hr />
+<p>With Tools-Kit <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a> Client you can post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a>.</p>
+<pre><code class="javascript">const { logger, hastebin } = require('tools-kit');
+
+hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
+  .then(async postRes =&gt; {
+    logger.log({ background: 'black', color: 'green', type: 'log', tag: 'POST RES' }, postRes);
+    // Console &gt; [20/02/2020 - 00:00:00 | POST RES]: HastebinObject{}
+
+    await hastebin.get(postRes.link)
+      .then(getRes =&gt; {
+        logger.log({ background: 'black', color: 'green', type: 'log', tag: 'GET RES' }, getRes);
+        // Console &gt; [20/02/2020 - 00:00:00 | GET RES]: HastebinObject{}
+      })
+      .catch(getErr =&gt; {
+        logger.log({ background: 'black', color: 'red', type: 'error', tag: 'GET ERROR' }, getErr);
+        // Console &gt; [20/02/2020 - 00:00:00 | GET ERROR]: Get Error
+      });
+  })
+  .catch(postErr =&gt; {
+    logger.log({ background: 'black', color: 'red', type: 'error', tag: 'POST ERROR' }, postErr);
+    // Console &gt; [20/02/2020 - 00:00:00 | POST ERROR]: Post Error
+  });</code></pre>
+<h2 id="tools-kit-logger-manager">Tools-Kit Logger Manager</h2>
+<hr />
+<p>With Tools-Kit Logger Manager you can log a styled and colored text into the console.</p>
+<pre><code class="javascript">const { logger } = require('tools-kit');
+
+logger.log('content');
+// Console &gt; [20/02/2020 - 00:00:00 | LOG]: content</code></pre>
+<p>Settings custom styling options:</p>
+<pre><code class="javascript">const { logger } = require('tools-kit');
+
+const settings = { // Support custom log options
+  background: 'black',
+  color: 'blue',
+  style: 'bold',
+  type: 'info',
+  time: true,
+  tag: 'Black &amp; Blue'
+};
+
+logger.log('content');
+// Console &gt; [20/02/2020 - 00:00:00 | LOG]: content
+
+logger.log(settings, 'content');
+// Console &gt; [20/02/2020 - 00:00:00 | Black &amp; Blue]: content
+
+logger.log({ time: false }, 'log', 'no time');
+// Console &gt; [LOG]: log no time
+
+logger.log({ time: 'MM-DD-YY' }, 'log', 'custom time format');
+// Console &gt; [02-20-2020 | LOG]: log custom time format
+
+logger.log({ tag: false }, 'log', 'no tag');
+// Console &gt; [20/02/2020 - 00:00:00]: log no tag
+
+logger.log({ tag: 'CUSTOM TAG' }, 'log', 'custom tag');
+// Console &gt; [20/02/2020 - 00:00:00 | CUSTOM TAG]: log custom tag
+
+logger.log({ time: false, tag: false }, 'log', 'not tag', 'no time');
+// Console &gt; log not tag no time
+
+logger // Support chain logging
+  .log({ tag: 'FIRST LOG' }, 'First content')
+  .log({ tag: 'SECOND LOG' }, 'Second content')
+  .log({ tag: 'THIRD LOG' }, 'Third content');
+/*
+  Console &gt; [20/02/2020 - 00:00:00 | FIRST LOG]: First content
+  Console &gt; [20/02/2020 - 00:00:00 | SECOND LOG]: Second content
+  Console &gt; [20/02/2020 - 00:00:00 | THIRD LOG]: Third content
+*/</code></pre>
+<h2 id="tools-kit-color-manager">Tools-Kit Color Manager</h2>
+<hr />
+<p>With Tools-Kit Color Manager you can transfer your simple text into a styled and modern one.</p>
+<pre><code class="javascript">// Requires - Files
+const { logger, color } = require('tools-kit');
+
+logger.log({ tag: 'STYLE' }, color.style({ background: 'gray' }, 'styled background'), 'normal background');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE]: styled background normal background
+
+logger.log({ tag: 'STYLE' }, color.style({ color: 'red' }, 'styled color'), 'normal color');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE]: styled color normal color
+
+logger.log({ tag: 'STYLE' }, color.style({ style: 'bold' }, 'styled style'), 'normal style');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE]: styled style normal style</code></pre>
+<p>Using premade cool colors maps:</p>
+<pre><code class="javascript">const { logger, color } = require('tools-kit');
+
+logger.log({ tag: 'RAINBOW' }, color.rainbow('rainbow styled-text'), 'normal text');
+// Console &gt; [20/02/2020 - 00:00:00 | RAINBOW]: rainbow styled-text normal text
+
+logger.log({ tag: 'RANDOM' }, color.random('random styled-text'), 'normal text');
+// Console &gt; [20/02/2020 - 00:00:00 | RANDOM]: random styled-text normal text
+
+logger.log({ tag: 'ZABRA' }, color.zabra('zabra styled-text'), 'normal text');
+// Console &gt; [20/02/2020 - 00:00:00 | ZABRA]: zabra styled-text zabra styled-text normal text</code></pre>
+<h2 id="tools-kit-utilities">Tools-Kit Utilities</h2>
+<hr />
+<p>With Tools-Kit Utilities you can use the functions that everyone uses in one simple line.</p>
+<pre><code class="javascript">const { logger, util } = require('tools-kit');
+
+logger.log({ tag: 'OBJECT?' }, util.isObject(new Array()));
+// Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: false
+
+logger.log({ tag: 'OBJECT?' }, util.isObject(new Object()));
+// Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: true
+
+logger.log({ tag: 'OBJECT?' }, util.isObject([]));
+// Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: false
+
+logger.log({ tag: 'OBJECT?' }, util.isObject({}));
+// Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: true
+
+logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
+// Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: dog
+
+logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
+// Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: 7</code></pre>
+<h2 id="license">License</h2>
+<hr />
+<p><a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/LICENSE.md"><strong>MIT</strong></a></p>
+<h2 id="changelog">Changelog</h2>
+<hr />
+<p>See the <a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/CHANGELOG.md"><strong>Changes Log</strong></a> for more information about each update.</p>
+<h2 id="documentations">Documentations</h2>
+<hr />
+<p>Read the <a href="https://tools-kit.js.org/api"><strong>Documentations</strong></a> for more information about each method.</p>
+<h2 id="related-modules">Related Modules</h2>
+<hr />
+<ul>
+<li><a href="https://www.npmjs.com/package/node-fetch">node-fetch</a> — A light-weight module that brings window.fetch to Node.js.</li>
+<li><a href="https://www.npmjs.com/package/moment">moment</a> — A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.</li>
+<li><a href="https://www.npmjs.com/package/figlet">figlet</a> — Creates ASCII Art from text. A full implementation of the FIGfont spec.</li>
+</ul>
+<h2 id="maintainers">Maintainers</h2>
+<hr />
+<ul>
+<li><a href="https://github.com/RealBlackB1RD">BlackB1RD</a></li>
+<li><a href="https://github.com/JamesParkDev">JamesParkDev</a></li>
+</ul>
+</body></html>
