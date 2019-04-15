@@ -29,6 +29,10 @@
     <img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="Code Style" />
   </a>
   <br />
+  <a href="https://nodei.co/npm/tools-kit/">
+    <img src="https://nodei.co/npm/tools-kit.png">
+  </a>
+  <br />
   <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a> (<b><a href="https://github.com/RealBlackB1RD">@RealBlackB1RD</a></b>). All rights reserved ©</sub>
 </p>
 
