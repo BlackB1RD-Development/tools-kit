@@ -1,8 +1,9 @@
-// tools-kit 1.0.0
+// Tools-Kit By BlackB1RD-Development. All rights reserved ©
+// Website: https://tools-kit.js.org/
 // Project: https://github.com/BlackB1RD-Development/tools-kit
 // License: MIT
 
-// Requires
+// Requires - Files
 const packageJSON = require('./package.json');
 const Hastebin = require('./lib/Clients/Hastebin.js');
 const Logger = require('./lib/Managers/Logger.js');
@@ -32,6 +33,7 @@ class Kit {
   }
 }
 
+// Assignments
 Kit.version = Kit.pVersion;
 Kit.name = Kit.pName;
 

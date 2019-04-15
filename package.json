@@ -1,6 +1,6 @@
 {
   "name": "tools-kit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An easy to use, powerful and multi-functionality tools-kit library for NodeJS written entirely in JavaScript.",
   "keywords": [
     "console",
@@ -9,40 +9,27 @@
     "color",
     "colour",
     "colors",
-    "tag",
-    "tags",
     "style",
     "styles",
-    "console tag",
     "console color",
     "console style",
-    "console tags",
     "console colors",
     "console styles",
-    "terminal tag",
     "terminal color",
     "terminal style",
-    "terminal tags",
     "terminal colors",
     "terminal styles",
-    "command-line tag",
     "command-line color",
     "command-line style",
-    "command-line tags",
     "command-line colors",
     "command-line styles",
-    "console log",
-    "console logging",
-    "terminal log",
-    "terminal logging",
-    "command-line log",
-    "command-line logging",
-    "console-tools",
-    "styling-tools",
-    "logging-tools",
-    "console tools",
-    "styling tools",
-    "logging tools",
+    "hastebin",
+    "pastebin",
+    "Array",
+    "Object",
+    "isObject",
+    "randomItem",
+    "randomNumber",
     "tools-kit",
     "kit-tools",
     "tools kit",
@@ -77,18 +64,26 @@
     "url": "https://github.com/BlackB1RD-Development/tools-kit.git"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "node test/Test.js",
+    "xo": "xo"
   },
   "dependencies": {
-    "node-fetch": "^2.3.0",
-    "figlet": "1.2.1",
-    "moment": "^2.24.0"
+    "figlet": "^1.2.1",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.3.0"
   },
   "devDependencies": {
-    "docma": "^3.2.2"
+    "coveralls": "^3.0.3",
+    "docma": "^3.2.2",
+    "xo": "^0.24.0"
+  },
+  "xo": {
+    "semicolon": true,
+    "extends": "./.eslintrc.json",
+    "space": true
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=7.6.0"
   },
   "readme": "README.md",
   "maintainers": [

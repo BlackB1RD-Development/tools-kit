@@ -1,7 +1,10 @@
-const tools = require('../index.js');
+// Tools-Kit By BlackB1RD-Development. All rights reserved ©
+// Website: https://tools-kit.js.org/
+// Project: https://github.com/BlackB1RD-Development/tools-kit
+// License: MIT
 
-const color = tools.color;
-const logger = tools.logger;
+// Requires - Files
+const { logger, color } = require('..');
 
 logger.log({ tag: 'STYLE' }, color.style({ background: 'gray' }, 'styled-background'), 'normal background');
 logger.log({ tag: 'STYLE' }, color.style({ color: 'red' }, 'styled-color'), 'normal color');

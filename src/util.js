@@ -1,4 +1,5 @@
-// tools-kit 1.0.0
+// Tools-Kit By BlackB1RD-Development. All rights reserved ©
+// Website: https://tools-kit.js.org/
 // Project: https://github.com/BlackB1RD-Development/tools-kit
 // License: MIT
 
@@ -18,131 +19,107 @@ const hastebinURLS = {
 };
 
 const backgrounds = {
-  black: "\x1b[40m",
-  gray: "\x1b[100m",
-  grey: "\x1b[100m",
+  black: '\u001B[40m',
+  gray: '\u001B[100m',
+  grey: '\u001B[100m',
 
-  lRed: "\x1b[41m",
-  lGreen: "\x1b[42m",
-  lYellow: "\x1b[43m",
-  lBlue: "\x1b[44m",
-  lMagenta: "\x1b[45m",
-  lCyan: "\x1b[46m",
-  lWhite: "\x1b[47m",
+  lRed: '\u001B[41m',
+  lGreen: '\u001B[42m',
+  lYellow: '\u001B[43m',
+  lBlue: '\u001B[44m',
+  lMagenta: '\u001B[45m',
+  lCyan: '\u001B[46m',
+  lWhite: '\u001B[47m',
 
-  hRed: "\x1b[101m",
-  hGreen: "\x1b[102m",
-  hYellow: "\x1b[103m",
-  hBlue: "\x1b[104m",
-  hMagenta: "\x1b[105m",
-  hCyan: "\x1b[106m",
-  hWhite: "\x1b[107m",
+  hRed: '\u001B[101m',
+  hGreen: '\u001B[102m',
+  hYellow: '\u001B[103m',
+  hBlue: '\u001B[104m',
+  hMagenta: '\u001B[105m',
+  hCyan: '\u001B[106m',
+  hWhite: '\u001B[107m'
 };
 
 const colors = {
-  black: "\x1b[30m",
-  gray: "\x1b[90m",
-  grey: "\x1b[90m",
+  black: '\u001B[30m',
+  gray: '\u001B[90m',
+  grey: '\u001B[90m',
 
-  lRed: "\x1b[31m",
-  lGreen: "\x1b[32m",
-  lYellow: "\x1b[33m",
-  lBlue: "\x1b[34m",
-  lMagenta: "\x1b[35m",
-  lCyan: "\x1b[36m",
-  lWhite: "\x1b[37m",
+  lRed: '\u001B[31m',
+  lGreen: '\u001B[32m',
+  lYellow: '\u001B[33m',
+  lBlue: '\u001B[34m',
+  lMagenta: '\u001B[35m',
+  lCyan: '\u001B[36m',
+  lWhite: '\u001B[37m',
 
-  hRed: "\x1b[91m",
-  hGreen: "\x1b[92m",
-  hYellow: "\x1b[93m",
-  hBlue: "\x1b[94m",
-  hMagenta: "\x1b[95m",
-  hCyan: "\x1b[96m",
-  hWhite: "\x1b[97m",
+  hRed: '\u001B[91m',
+  hGreen: '\u001B[92m',
+  hYellow: '\u001B[93m',
+  hBlue: '\u001B[94m',
+  hMagenta: '\u001B[95m',
+  hCyan: '\u001B[96m',
+  hWhite: '\u001B[97m'
 };
 
 const styles = {
-  reset: "\x1b[0m",
-  bold: "\x1b[1m",
-  dim: "\x1b[2m",
-  italic: "\x1b[3m",
-  underline: "\x1b[4m",
-  inverse: "\x1b[7m",
-  hidden: "\x1b[8m",
-  strikethrough: "\x1b[9m"
+  reset: '\u001B[0m',
+  bold: '\u001B[1m',
+  dim: '\u001B[2m',
+  italic: '\u001B[3m',
+  underline: '\u001B[4m',
+  inverse: '\u001B[7m',
+  hidden: '\u001B[8m',
+  strikethrough: '\u001B[9m'
 };
 
-const consoles = {
-  log: console.log,
-  info: console.info,
-  error: console.error,
-  trace: console.trace,
-  warn: console.warn,
-  debug: console.debug
-};
-
-function checkAvailable(from, item) {
-  if (typeof from !== 'string' || typeof item !=='string' || typeof from !== 'string' && typeof item !=='string') return new Error('The parameters must be a string value.')
-
-  item = item.toLowerCase();
-
-  const bgs = Object.keys(backgrounds);
-  const cls = Object.keys(colors);
-  const sty = Object.keys(styles);
-  const con = Object.keys(consoles);
-
-  if (from === 'backgrounds') {
-    const bgsInclude = bgs.includes(item) ? true : false;
-
-    if (!bgsInclude) {
-      if (item === 'black' || item === 'gray' || item === 'grey') item = item;
-      else if (!item.startsWith('l') && !item.startsWith('h')) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
-    }
-
-    return bgs.includes(item) ? true : false;
-  } else if (from === 'colors') {
-    const clsInclude = cls.includes(item) ? true : false;
-
-    if (!clsInclude) {
-      if (item === 'black' || item === 'gray' || item === 'grey') item = item;
-      else if (!item.startsWith('l') && !item.startsWith('h')) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
-    }
-
-    return cls.includes(item) ? true : false;
-  } else if (from === 'styles') return sty.includes(item) ? true : false;
-  else if (from === 'consoles') return con.includes(item) ? true : false;
-  else return new Error('Invalid from name.');
-}
-
-function get(from, item) {
-  if (typeof from !== 'string' || typeof item !=='string' || typeof from !== 'string' && typeof item !=='string') return new Error('The parameters must be a string value.')
-
-  item = item.toLowerCase();
-
-  if (from === 'backgrounds') {
-    if (item === 'black' || item === 'gray' || item === 'grey') item = item;
-    else if (!item.startsWith('l') && !item.startsWith('h')) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());    
-
-    return backgrounds[item];
-  } else if (from === 'colors') {
-    if (item === 'black' || item === 'gray' || item === 'grey') item = item;
-    else if (!item.startsWith('l') && !item.startsWith('h')) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());    
-
-    return colors[item];
-  } else if (from === 'styles') return styles[item];
-  else if (from === 'consoles') return consoles[item];
-  else return new Error('Invalid from name.');
-}
+const consoles = ['log', 'info', 'error', 'trace', 'warn', 'debug'];
 
 module.exports = {
   // Hastebin Client
-  hastebinURLS: hastebinURLS,
+  hastebinURLS,
 
-  // Loggers Manager
-  checkAvailable: checkAvailable,
-  backgrounds: backgrounds,
-  colors: colors,
-  styles: styles,
-  reset: styles.reset,
-  get: get
+  // Logger Manager
+  checkAvailability: function (from, item) {
+    if (typeof from !== 'string' || typeof item !== 'string') return new Error('The parameters must be a string value.');
+
+    item = item.toLowerCase();
+
+    const bgs = Object.keys(backgrounds);
+    const cls = Object.keys(colors);
+
+    if (from === 'backgrounds') {
+      if (!(cls.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+
+      return bgs.includes(item);
+    } else if (from === 'colors') {
+      if (!(cls.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+
+      return cls.includes(item);
+    } else if (from === 'styles') return Object.keys(styles).includes(item);
+    else if (from === 'consoles') return consoles.includes(item);
+    else return false;
+  },
+  get: function (from, item) {
+    if (typeof from !== 'string' || typeof item !== 'string') return new Error('The parameters must be a string value.');
+
+    item = item.toLowerCase();
+
+    if (from === 'backgrounds') {
+      if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+
+      return backgrounds[item];
+    } else if (from === 'colors') {
+      if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+
+      return colors[item];
+    } else if (from === 'styles') return styles[item];
+    else if (from === 'consoles') return consoles[item];
+    else return false;
+  },
+  backgrounds,
+  consoles,
+  colors,
+  styles,
+  reset: styles.reset
 };

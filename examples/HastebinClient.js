@@ -1,14 +1,17 @@
-const tools = require('../index.js');
+// Tools-Kit By BlackB1RD-Development. All rights reserved ©
+// Website: https://tools-kit.js.org/
+// Project: https://github.com/BlackB1RD-Development/tools-kit
+// License: MIT
 
-const hastebin = tools.hastebin;
-const logger = tools.logger;
+// Requires - Files
+const { logger, hastebin } = require('..');
 
-hastebin.post('var test = "test";\n\nconsole.log(test);', '.js')
-  .then(postRes => {
-    logger.log({ tag: 'POST RES' }, postRes);
+hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
+  .then(async postRes => {
+    logger.log({ background: 'black', color: 'green', type: 'info', tag: 'POST RES' }, postRes);
 
-    hastebin.get(postRes.link)
-      .then(getRes => logger.log({ tag: 'GET RES' }, getRes))
-      .catch(getErr => logger.error({ tag: 'GET ERROR' }, getErr));
+    await hastebin.get(postRes.link)
+      .then(getRes => logger.log({ background: 'black', color: 'green', type: 'info', tag: 'GET RES' }, getRes))
+      .catch(getErr => logger.log({ background: 'black', color: 'red', type: 'error', tag: 'GET ERROR' }, getErr));
   })
-  .catch(postErr => logger.error({ tag: 'POST ERROR' }, postErr));
+  .catch(postErr => logger.log({ background: 'black', color: 'red', type: 'error', tag: 'POST ERROR' }, postErr));
