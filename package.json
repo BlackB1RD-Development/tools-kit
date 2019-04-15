@@ -1,0 +1,106 @@
+{
+  "name": "tools-kit",
+  "version": "1.0.0",
+  "description": "An easy to use, powerful and multi-functionality tools-kit library for NodeJS written entirely in JavaScript.",
+  "keywords": [
+    "console",
+    "terminal",
+    "command-line",
+    "color",
+    "colour",
+    "colors",
+    "tag",
+    "tags",
+    "style",
+    "styles",
+    "console tag",
+    "console color",
+    "console style",
+    "console tags",
+    "console colors",
+    "console styles",
+    "terminal tag",
+    "terminal color",
+    "terminal style",
+    "terminal tags",
+    "terminal colors",
+    "terminal styles",
+    "command-line tag",
+    "command-line color",
+    "command-line style",
+    "command-line tags",
+    "command-line colors",
+    "command-line styles",
+    "console log",
+    "console logging",
+    "terminal log",
+    "terminal logging",
+    "command-line log",
+    "command-line logging",
+    "console-tools",
+    "styling-tools",
+    "logging-tools",
+    "console tools",
+    "styling tools",
+    "logging tools",
+    "tools-kit",
+    "kit-tools",
+    "tools kit",
+    "kit tools"
+  ],
+  "homepage": "https://tools-kit.js.org/",
+  "bugs": {
+    "email": "blackbird.d3v@gmail.com",
+    "url": "https://github.com/BlackB1RD-Development/tools-kit/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "BlackB1RD",
+    "email": "blackbird.d3v@gmail.com",
+    "url": "https://github.com/RealBlackB1RD"
+  },
+  "contributors": [
+    {
+      "name": "James",
+      "email": "jamesparkdev@gmail.com",
+      "url": "https://github.com/JamesParkDev"
+    }
+  ],
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test",
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BlackB1RD-Development/tools-kit.git"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.3.0",
+    "figlet": "1.2.1",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "docma": "^3.2.2"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "readme": "README.md",
+  "maintainers": [
+    {
+      "name": "BlackB1RD | RealBlackB1RD",
+      "email": "blackbird.d3v@gmail.com",
+      "url": "https://github.com/RealBlackB1RD"
+    },
+    {
+      "name": "James | JamesParkDev",
+      "email": "jamesparkdev@gmail.com",
+      "url": "https://github.com/JamesParkDev"
+    }
+  ]
+}
