@@ -4,7 +4,7 @@
 // License: MIT
 
 const hastebinURLS = {
-  regex: /(https?:\/\/www.hastebin.com|https?:\/\/hastebin.com|www.hastebin.com|hastebin.com)\//i,
+  regex: /(https?:\/\/www.hastebin.com|https?:\/\/hastebin.com|www.hastebin.com|hastebin.com)\/?/i,
   documentsHttpsWWW: 'https://www.hastebin.com/documents',
   documentsHttpWWW: 'http://www.hastebin.com/documents',
   documentsHttps: 'https://hastebin.com/documents',
@@ -73,52 +73,51 @@ const styles = {
   strikethrough: '\u001B[9m'
 };
 
-const consoles = ['log', 'info', 'error', 'trace', 'warn', 'debug'];
+function checkAvailability(from, item) {
+  if (typeof from !== 'string' || typeof item !== 'string') return new Error('The parameters must be a string value.');
+
+  const bgs = Object.keys(backgrounds);
+  const cls = Object.keys(colors);
+
+  if (from === 'backgrounds') {
+    if (!(bgs.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+
+    return bgs.includes(item);
+  } else if (from === 'colors') {
+    if (!(cls.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+
+    return cls.includes(item);
+  } else if (from === 'styles') return Object.keys(styles).includes(item);
+  else return false;
+}
+
+function get(from, item) {
+  if (typeof from !== 'string' || typeof item !== 'string') return new Error('The parameters must be a string value.');
+
+  item = item.toLowerCase();
+
+  if (!checkAvailability(from, item)) return false;
+
+  if (from === 'backgrounds') {
+    if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+
+    return backgrounds[item];
+  } else if (from === 'colors') {
+    if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+
+    return colors[item];
+  } else if (from === 'styles') return styles[item];
+  else return false;
+}
 
 module.exports = {
   // Hastebin Client
   hastebinURLS,
 
   // Logger Manager
-  checkAvailability: function (from, item) {
-    if (typeof from !== 'string' || typeof item !== 'string') return new Error('The parameters must be a string value.');
-
-    item = item.toLowerCase();
-
-    const bgs = Object.keys(backgrounds);
-    const cls = Object.keys(colors);
-
-    if (from === 'backgrounds') {
-      if (!(cls.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
-
-      return bgs.includes(item);
-    } else if (from === 'colors') {
-      if (!(cls.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
-
-      return cls.includes(item);
-    } else if (from === 'styles') return Object.keys(styles).includes(item);
-    else if (from === 'consoles') return consoles.includes(item);
-    else return false;
-  },
-  get: function (from, item) {
-    if (typeof from !== 'string' || typeof item !== 'string') return new Error('The parameters must be a string value.');
-
-    item = item.toLowerCase();
-
-    if (from === 'backgrounds') {
-      if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
-
-      return backgrounds[item];
-    } else if (from === 'colors') {
-      if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
-
-      return colors[item];
-    } else if (from === 'styles') return styles[item];
-    else if (from === 'consoles') return consoles[item];
-    else return false;
-  },
+  checkAvailability,
+  get,
   backgrounds,
-  consoles,
   colors,
   styles,
   reset: styles.reset

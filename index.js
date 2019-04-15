@@ -11,12 +11,14 @@ const Color = require('./lib/Managers/Color.js');
 const Util = require('./lib/Utilities/Util.js');
 
 /**
- * The Tools-Kit package
+ * The Tools-Kit package class
  */
 class Kit {
   /**
    * The package version
    * @returns {String} The package version
+   * @access private
+   * @private
    * @readonly
    */
   static get pVersion() {
@@ -26,6 +28,8 @@ class Kit {
   /**
    * The package name
    * @returns {String} The package name
+   * @access private
+   * @private
    * @readonly
    */
   static get pName() {
@@ -37,9 +41,16 @@ class Kit {
 Kit.version = Kit.pVersion;
 Kit.name = Kit.pName;
 
-Kit.util = Util;
-Kit.color = Color;
-Kit.logger = Logger;
+Kit.Hastebin = Hastebin;
 Kit.hastebin = Hastebin;
+
+Kit.Logger = Logger;
+Kit.logger = Logger;
+
+Kit.Color = Color;
+Kit.color = Color;
+
+Kit.Util = Util;
+Kit.util = Util;
 
 module.exports = Kit;

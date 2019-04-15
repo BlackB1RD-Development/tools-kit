@@ -3,7 +3,10 @@
 // Project: https://github.com/BlackB1RD-Development/tools-kit
 // License: MIT
 
+/* eslint-disable no-undef */
+
 // Requires - Files
+const assert = require('assert');
 const tools = require('..');
 
 // Assignments
@@ -12,87 +15,102 @@ const color = tools.color;
 const logger = tools.logger;
 const hastebin = tools.hastebin;
 
-logger.log({ tag: 'PACKAGE NAME' }, tools.pName);
-logger.log({ tag: 'PACKAGE VERSION' }, tools.pVersion);
+describe('Util', () => {
+  describe('#isObject', () => {
+    it('should return true (Testing an Object)', () => {
+      assert.deepStrictEqual(util.isObject({}), true);
+    });
+  });
 
-logger.log({ tag: 'LOGGER LOGS' }, logger.logs);
-logger.log({ tag: 'LOGGER EVENTS' }, logger.events);
-logger.log({ tag: 'LOGGER METHODS' }, logger.methods);
+  describe('#isObject', () => {
+    it('should return false (Testing an Array)', () => {
+      assert.deepStrictEqual(util.isObject([]), false);
+    });
+  });
 
-logger.log({ tag: 'OBJECT?' }, util.isObject(null));
-logger.log({ tag: 'OBJECT?' }, util.isObject(undefined));
-logger.log({ tag: 'OBJECT?' }, util.isObject(true));
-logger.log({ tag: 'OBJECT?' }, util.isObject(1));
-logger.log({ tag: 'OBJECT?' }, util.isObject(''));
-logger.log({ tag: 'OBJECT?' }, util.isObject([]));
-logger.log({ tag: 'OBJECT?' }, util.isObject([{}]));
-logger.log({ tag: 'OBJECT?' }, util.isObject({}));
-logger.log({ tag: 'OBJECT?' }, util.isObject(new Date()));
-logger.log({ tag: 'OBJECT?' }, util.isObject(new Error()));
-logger.log({ tag: 'OBJECT?' }, util.isObject(new Array()));
-logger.log({ tag: 'OBJECT?' }, util.isObject(new RegExp()));
-logger.log({ tag: 'OBJECT?' }, util.isObject(new Object()));
-logger.log({ tag: 'RANDOM ITEM' }, util.randomItem([1, 2, 3, 4]));
-logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
+  describe('#randomItem', () => {
+    it('should return a random item from this list: cat, dog, fish', () => {
+      let testArr = ['cat', 'dog', 'fish'];
 
-logger.log({ tag: 'RAINBOW' }, color.rainbow('rainbow colored-text'), 'normal text');
-logger.log({ tag: 'RANDOM' }, color.random('random colored-text'), 'normal text');
-logger.log({ tag: 'ZABRA' }, color.zabra('zabra colored-text'), 'normal text');
-logger.log({ tag: 'STYLE' }, color.style({ background: 'gray' }, 'styled-background'), 'normal background');
-logger.log({ tag: 'STYLE' }, color.style({ color: 'red' }, 'styled-color'), 'normal color');
-logger.log({ tag: 'STYLE' }, color.style({ style: 'bold' }, 'styled-style'), 'normal style');
+      assert.deepStrictEqual(testArr.includes(util.randomItem(testArr)), true);
+    });
+  });
 
-logger.log('content');
-logger.log({
-  background: 'blue',
-  color: 'red',
-  style: 'bold',
-  type: 'info',
-  time: true,
-  tag: 'Red & Blue'
-}, 'content');
-logger.log({ background: 'blue' }, 'log', 'blue text background');
-logger.log({ color: 'yellow' }, 'log', 'yellow text color');
-logger.log({ style: 'bold' }, 'log', 'bold text style');
-logger.log({ type: 'info' }, 'log', 'console info type');
-logger.log({ time: false }, 'log', 'no time');
-logger.log({ time: 'MM-DD-YY' }, 'log', 'custom time format');
-logger.log({ tag: 'TEST' }, 'log', 'test tag');
-
-logger.on('test', log => {
-  logger.log({ tag: 'ON EVENT' }, `${log.name} triggered on`);
+  describe('#randomNumber', () => {
+    it('should return a random number between 5 to 10', () => {
+      let numbersArr = [5, 6, 7, 8, 9, 10];
+ 
+      assert.deepStrictEqual(numbersArr.includes(util.randomNumber(5, 10)), true);
+    });
+  });
 });
 
-logger.once('important', log => {
-  logger.log({ tag: 'ONCE EVENT' }, `${log.name} triggered once`);
+describe('Color', () => {
+  describe('#rainbow', () => {
+    it('shouldn\'t return an Error', () => {
+      assert.deepStrictEqual(typeof color.rainbow('rainbow colored-text'), 'string');
+    });
+  });
+
+  describe('#random', () => {
+    it('shouldn\'t return an Error', () => {
+      assert.deepStrictEqual(typeof color.random('random colored-text'), 'string');
+    });
+  });
+
+  describe('#zabra', () => {
+    it('shouldn\'t return an Error', () => {
+      assert.deepStrictEqual(typeof color.zabra('zabra colored-text'), 'string');
+    });
+  });
+
+  describe('#style', () => {
+    it('shouldn\'t return an Error', () => {
+      assert.deepStrictEqual(typeof color.style({ color: 'red' }, 'styled-color'), 'string');
+    });
+  });
 });
 
-logger.important('test', 'important', 'test');
-logger.important('test', 'important', 'test');
-logger.success('test', 'success', 'test');
-logger.fatal('test', 'fatal', 'test');
-logger.trace('test', 'trace', 'test');
-logger.error('test', 'error', 'test');
-logger.debug('test', 'debug', 'test');
-logger.warn('test', 'warn', 'test');
-logger.info('test', 'info', 'test');
-logger.log('test', 'log', 'test');
+describe('Logger', () => {
+  describe('#log', () => {
+    it('should return the Logger class', () => {
+      assert.deepStrictEqual(logger.log({ time: false, tag: false }, ''), logger);
+    });
+  });
 
-// This methods listed below will take some time before being logged in to the console
+  describe('#logs', () => {
+    it('should return all the Logger logs', () => {
+      assert.deepStrictEqual(Array.isArray(logger.logs), true);
+    });
+  });
 
-logger.figlet('figlet', 'test');
-logger.figlet({
-  font: 'Ghost',
-  horizontalLayout: 'default',
-  verticalLayout: 'default'
-}, 'figlet', 'Ghost');
+  describe('#methods', () => {
+    it('should return all the Logger methods', () => {
+      assert.deepStrictEqual(Array.isArray(logger.methods), true);
+    });
+  });
 
-hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
-  .then(async postRes => {
-    logger.log({ background: 'black', color: 'green', type: 'info', tag: 'POST RES' }, postRes);
+  describe('#events', () => {
+    it('should return all the Logger events', () => {
+      assert.deepStrictEqual(Array.isArray(logger.events), true);
+    });
+  });
+});
 
-    await hastebin.get(postRes.link)
-      .then(getRes => logger.log({ background: 'black', color: 'green', type: 'info', tag: 'GET RES' }, getRes))
-      .catch(getErr => logger.log({ background: 'black', color: 'red', type: 'error', tag: 'GET ERROR' }, getErr));
-  })
-  .catch(postErr => logger.log({ background: 'black', color: 'red', type: 'error', tag: 'POST ERROR' }, postErr));
+describe('Hastebin', () => {
+  const hastebinObjProps = ['link', 'host', 'key', 'extension', 'content', 'ratelimit', 'ratelimit_remaining', 'status_txt', 'status_code'];
+
+  describe('#post', () => {
+    it('should return Hastebin Object', async() => {
+      await hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
+        .then(res => assert.deepStrictEqual(Object.keys(res), hastebinObjProps));
+    });
+  });
+
+  describe('#get', () => {
+    it('should return Hastebin Object', async() => {
+      await hastebin.get('https://hastebin.com/about.md')
+        .then(res => assert.deepStrictEqual(Object.keys(res), hastebinObjProps));
+    });
+  });
+});

@@ -13,16 +13,12 @@
     "unicorn"
   ],
   "rules": {
-    "unicorn/filename-case": ["error", {"case": "pascalCase"}],
+    "unicorn/filename-case": "off",
     "object-curly-spacing": ["error", "always"],
-    "no-array-constructor": "off",
-    "no-new-object": "off",
     "no-console": "off",
-    "complexity": "off",
     "camelcase": ["error", {"properties": "never"}],
     "indent": ["error", 2],
     "quotes": ["error", "single"],
-    "curly": "off",
     "semi": ["error", "always"]
   }
 }

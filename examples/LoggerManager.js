@@ -6,21 +6,42 @@
 // Requires - Files
 const { logger } = require('..');
 
-const settings = {
-  background: 'blue',
-  color: 'red',
+const settings = { // Support custom log options
+  background: 'black',
+  color: 'blue',
   style: 'bold',
   type: 'info',
   time: true,
-  tag: 'Red & Blue'
+  tag: 'Black & Blue'
 };
 
-logger.log('content'); // This will log the content to the console with the stock console settings.
-logger.log(settings, 'content'); // Resulting in a blue background, red colored text, and bold styled text: [20/01/2020 - 00:00:00 | Red & Blue]: content
+logger.log('content');
+// Console > [20/02/2020 - 00:00:00 | LOG]: content
 
-const options = {
-  time: 'MM-DD-YY',
-  tag: 'Custom Time Format'
-};
+logger.log(settings, 'content');
+// Console > [20/02/2020 - 00:00:00 | Black & Blue]: content
 
-logger.log(options, 'content'); // Results: [01/20/2020 | Custom Time Format]: content
+logger.log({ time: false }, 'log', 'no time');
+// Console > [LOG]: log no time
+
+logger.log({ time: 'MM-DD-YY' }, 'log', 'custom time format');
+// Console > [02-20-2020 | LOG]: log custom time format
+
+logger.log({ tag: false }, 'log', 'no tag');
+// Console > [20/02/2020 - 00:00:00]: log no tag
+
+logger.log({ tag: 'CUSTOM TAG' }, 'log', 'custom tag');
+// Console > [20/02/2020 - 00:00:00 | CUSTOM TAG]: log custom tag
+
+logger.log({ time: false, tag: false }, 'log', 'not tag', 'no time');
+// Console > log not tag no time
+
+logger // Support chain logging
+  .log({ tag: 'FIRST LOG' }, 'First content')
+  .log({ tag: 'SECOND LOG' }, 'Second content')
+  .log({ tag: 'THIRD LOG' }, 'Third content');
+/* 
+  Console > [20/02/2020 - 00:00:00 | FIRST LOG]: First content
+  Console > [20/02/2020 - 00:00:00 | SECOND LOG]: Second content
+  Console > [20/02/2020 - 00:00:00 | THIRD LOG]: Third content
+*/
