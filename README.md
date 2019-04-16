@@ -55,12 +55,12 @@ npm install tools-kit
 
 Click to jump between class examples:
 
-|     Class  Name     |                                 Class Description                                  |
-|   ---------------   |   ------------------------------------------------------------------------------   |
-|   Hastebin Client   |              Post and fetch code easily from [**Hastebin**][hastebin]              |
-|        Logger       |                   Log a styled and colored text into the console                   |
-|        Color        |    Transfer your simple text into a styled and modern one (Console support only)   |
-|        Util         |           A collection of functions that everyone use in one simple line           |
+|                  Class  Name                  |                                 Class Description                                  |
+|                ---------------                |   ------------------------------------------------------------------------------   |
+| [Hastebin Client](#tools-kit-hastebin-client) |              Post and fetch code easily from [**Hastebin**][hastebin]              |
+|      [Logger](#tools-kit-logger-manager)      |                   Log a styled and colored text into the console                   |
+|       [Color](#tools-kit-color-manager)       |    Transfer your simple text into a styled and modern one (Console support only)   |
+|          [Util](#tools-kit-utilities)         |           A collection of functions that everyone use in one simple line           |
 
 ## Tools-Kit Hastebin Client
 
