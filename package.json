@@ -67,7 +67,8 @@
   "scripts": {
     "prebuild": "xo && nyc mocha && docma -c src/docma.json -d docs",
     "build": "nyc report --reporter=text-lcov > node_modules/.bin/coveralls && gh-pages -d docs",
-    "test": "mocha"
+    "pretest": "xo && nyc mocha",
+    "test": "nyc report --reporter=text-lcov > node_modules/.bin/coveralls"
   },
   "dependencies": {
     "node-fetch": "^2.3.0",
