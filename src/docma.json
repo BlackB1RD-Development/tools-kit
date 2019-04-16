@@ -11,6 +11,7 @@
 				"label": "Tools-Kit",
 				"href": "/"
 			},
+			"logo": "./docs/img/logo.png",
 			"sidebar": {
 				"enabled": true,
 				"collapsed": false,

@@ -1,3 +1,6 @@
+<h1 align="center">
+  <img width="500" src="docs/img/logo.png" alt="Tools-Kit Logo">
+</h1>
 <p align="center">An easy to use, powerful and multi-functionality tools-kit library for NodeJS written entirely in JavaScript.</p>
 
 <p align="center">
