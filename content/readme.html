@@ -61,19 +61,19 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>Hastebin Client</td>
+<td><a href="#tools-kit-hastebin-client">Hastebin Client</a></td>
 <td>Post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a></td>
 </tr>
 <tr>
-<td>Logger</td>
+<td><a href="#tools-kit-logger-manager">Logger</a></td>
 <td>Log a styled and colored text into the console</td>
 </tr>
 <tr>
-<td>Color</td>
+<td><a href="#tools-kit-color-manager">Color</a></td>
 <td>Transfer your simple text into a styled and modern one (Console support only)</td>
 </tr>
 <tr>
-<td>Util</td>
+<td><a href="#tools-kit-utilities">Util</a></td>
 <td>A collection of functions that everyone use in one simple line</td>
 </tr>
 </tbody></table>
@@ -103,11 +103,52 @@ hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
   });</code></pre>
 <h2 id="tools-kit-logger-manager">Tools-Kit Logger Manager</h2>
 <hr />
-<p>With Tools-Kit Logger Manager you can log a styled and colored text into the console.</p>
+<p>With Tools-Kit Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.
+See more backgrounds, colors, styles &amp; consoles types by clicking <a href="#options-styles">here</a></p>
 <pre><code class="javascript">const { logger } = require('tools-kit');
 
 logger.log('content');
-// Console &gt; [20/02/2020 - 00:00:00 | LOG]: content</code></pre>
+// Console &gt; [20/02/2020 - 00:00:00 | LOG]: content
+
+logger.important('Important log');
+// Console &gt; [20/02/2020 - 00:00:00 | IMPORTANT]: Important log
+
+logger.success('Success log');
+// Console &gt; [20/02/2020 - 00:00:00 | SUCCESS]: Success log
+
+logger.debug('Debugging log');
+// Console &gt; [20/02/2020 - 00:00:00 | DEBUG]: Debugging log
+
+logger.error('Error log');
+// Console &gt; [20/02/2020 - 00:00:00 | ERROR]: Error log
+
+logger.fatal('Fatal log');
+// Console &gt; [20/02/2020 - 00:00:00 | FATAL]: Fatal log
+
+logger.trace('Trace log');
+// Console &gt; [20/02/2020 - 00:00:00 | TRACE]: Trace log
+
+logger.info('Information log');
+// Console &gt; [20/02/2020 - 00:00:00 | INFO]: Information log
+
+logger.warn('Warning log');
+// Console &gt; [20/02/2020 - 00:00:00 | WARN]: Warning log
+
+logger.figlet({}, 'FIGLET', 'LOG');
+/*
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:   _     ___   ____
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |   / _ \ / ___|
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |  | | | | |  _
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |__| |_| | |_| |
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |_____\___/ \____|
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:   _____ ___ ____ _     _____ _____
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  ___|_ _/ ___| |   | ____|_   _|
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |_   | | |  _| |   |  _|   | |
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|
+Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:
+*/</code></pre>
 <p>Settings custom styling options:</p>
 <pre><code class="javascript">const { logger } = require('tools-kit');
 
@@ -119,9 +160,6 @@ const settings = { // Support custom log options
   time: true,
   tag: 'Black &amp; Blue'
 };
-
-logger.log('content');
-// Console &gt; [20/02/2020 - 00:00:00 | LOG]: content
 
 logger.log(settings, 'content');
 // Console &gt; [20/02/2020 - 00:00:00 | Black &amp; Blue]: content
@@ -138,8 +176,8 @@ logger.log({ tag: false }, 'log', 'no tag');
 logger.log({ tag: 'CUSTOM TAG' }, 'log', 'custom tag');
 // Console &gt; [20/02/2020 - 00:00:00 | CUSTOM TAG]: log custom tag
 
-logger.log({ time: false, tag: false }, 'log', 'not tag', 'no time');
-// Console &gt; log not tag no time
+logger.log({ time: false, tag: false }, 'log', 'no tag', 'no time');
+// Console &gt; log no tag no time
 
 logger // Support chain logging
   .log({ tag: 'FIRST LOG' }, 'First content')
@@ -197,6 +235,80 @@ logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
 // Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: 7</code></pre>
+<h2 id="styles-options">Styles Options</h2>
+<hr />
+<h3 id="optionsbackground">options.background</h3>
+<ul>
+<li><code>black</code></li>
+<li><code>gray</code></li>
+<li><code>grey</code></li>
+<li><code>lRed</code></li>
+<li><code>lGreen</code></li>
+<li><code>lYellow</code></li>
+<li><code>lBlue</code></li>
+<li><code>lMagenta</code></li>
+<li><code>lCyan</code></li>
+<li><code>lWhite</code></li>
+<li><code>bRed</code></li>
+<li><code>bGreen</code></li>
+<li><code>bYellow</code></li>
+<li><code>bBlue</code></li>
+<li><code>bMagenta</code></li>
+<li><code>bCyan</code></li>
+<li><code>bWhite</code></li>
+</ul>
+<h3 id="optionscolors">options.colors</h3>
+<ul>
+<li><code>black</code></li>
+<li><code>gray</code></li>
+<li><code>grey</code></li>
+<li><code>lRed</code></li>
+<li><code>lGreen</code></li>
+<li><code>lYellow</code></li>
+<li><code>lBlue</code></li>
+<li><code>lMagenta</code></li>
+<li><code>lCyan</code></li>
+<li><code>lWhite</code></li>
+<li><code>bRed</code></li>
+<li><code>bGreen</code></li>
+<li><code>bYellow</code></li>
+<li><code>bBlue</code></li>
+<li><code>bMagenta</code></li>
+<li><code>bCyan</code></li>
+<li><code>bWhite</code></li>
+</ul>
+<h3 id="optionsstyle">options.style</h3>
+<ul>
+<li><code>reset</code> - Resets the current color to the default console color.</li>
+<li><code>bold</code> - Make the text bold.</li>
+<li><code>dim</code> - Emitting only a small amount of the text light.</li>
+<li><code>italic</code> - Make the text <em>italic</em> styled - <strong>Not widely supported</strong></li>
+<li><code>underline</code> - Make the text <em>underline</em> styled - <strong>Not widely supported</strong></li>
+<li><code>inverse</code>- Inverse the background and the foreground colors.</li>
+<li><code>hidden</code> - Prints the text, but makes it invisible.</li>
+<li><code>strikethrough</code> - Puts a horizontal line through the center of the text - <strong>Not widely supported</strong></li>
+</ul>
+<h3 id="optionstype">options.type</h3>
+<ul>
+<li><code>log</code> - Prints to <code>stdout</code> with newline. Multiple arguments can be passed, with the first used as the primary message and all additional used as substitution values similar to <code>printf(3)</code> (the arguments are all passed to <code>util.format()</code>).</li>
+<li><code>error</code> - Prints to <code>stderr</code> with newline. Multiple arguments can be passed, with the first used as the primary message and all additional used as substitution values similar to <code>printf(3)</code> (the arguments are all passed to <code>util.format()</code>).</li>
+<li><code>trace</code> - Prints to <code>stderr</code> the string 'Trace: ', followed by the <code>util.format()</code> formatted message and stack trace to the current position in the code.</li>
+<li><code>debug</code>- The <code>console.debug()</code> function is an alias for <code>console.log()</code>.</li>
+<li><code>info</code> - The <code>console.info()</code> function is an alias for <code>console.log()</code>.</li>
+<li><code>warn</code> - The <code>console.warn()</code> function is an alias for <code>console.error()</code>.</li>
+</ul>
+<h3 id="optionstime">options.time</h3>
+<ul>
+<li>The <code>options.time</code> can be either of this two:</li>
+<li><code>Boolean</code> (true/false) - If to include the current time with the stock format when logging</li>
+<li><code>String</code> (<a href="https://www.npmjs.com/package/moment">moment</a> time format) - A custom moment time format to use when logging</li>
+</ul>
+<h3 id="optionstag">options.tag</h3>
+<ul>
+<li>The <code>options.tag</code> can be either of this two:</li>
+<li><code>Boolean</code> (true/false) - If to include the a tag when logging</li>
+<li><code>String</code> - A custom string value to use as a tag when logging</li>
+</ul>
 <h2 id="license">License</h2>
 <hr />
 <p><a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/LICENSE.md"><strong>MIT</strong></a></p>
