@@ -104,7 +104,7 @@ hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
 <h2 id="tools-kit-logger-manager">Tools-Kit Logger Manager</h2>
 <hr />
 <p>With Tools-Kit Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.
-See more backgrounds, colors, styles &amp; consoles types by clicking <a href="#options-styles">here</a></p>
+See more backgrounds, colors, styles &amp; consoles types by clicking <a href="#logger-options">here</a></p>
 <pre><code class="javascript">const { logger } = require('tools-kit');
 
 logger.log('content');
@@ -202,7 +202,7 @@ logger.log({ tag: 'STYLE' }, color.style({ color: 'red' }, 'styled color'), 'nor
 
 logger.log({ tag: 'STYLE' }, color.style({ style: 'bold' }, 'styled style'), 'normal style');
 // Console &gt; [20/02/2020 - 00:00:00 | STYLE]: styled style normal style</code></pre>
-<p>Using premade cool colors maps:</p>
+<p>Using pre-made cool colors maps:</p>
 <pre><code class="javascript">const { logger, color } = require('tools-kit');
 
 logger.log({ tag: 'RAINBOW' }, color.rainbow('rainbow styled-text'), 'normal text');
@@ -211,8 +211,8 @@ logger.log({ tag: 'RAINBOW' }, color.rainbow('rainbow styled-text'), 'normal tex
 logger.log({ tag: 'RANDOM' }, color.random('random styled-text'), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | RANDOM]: random styled-text normal text
 
-logger.log({ tag: 'ZABRA' }, color.zabra('zabra styled-text'), 'normal text');
-// Console &gt; [20/02/2020 - 00:00:00 | ZABRA]: zabra styled-text zabra styled-text normal text</code></pre>
+logger.log({ tag: 'ZEBRA' }, color.zebra('zebra styled-text'), 'normal text');
+// Console &gt; [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text zebra styled-text normal text</code></pre>
 <h2 id="tools-kit-utilities">Tools-Kit Utilities</h2>
 <hr />
 <p>With Tools-Kit Utilities you can use the functions that everyone uses in one simple line.</p>
@@ -235,7 +235,7 @@ logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
 // Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: 7</code></pre>
-<h2 id="styles-options">Styles Options</h2>
+<h2 id="logger-options">Logger Options</h2>
 <hr />
 <h3 id="optionsbackground">options.background</h3>
 <ul>
