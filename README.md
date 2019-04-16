@@ -93,6 +93,7 @@ hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
 ## Tools-Kit Logger Manager
 
 With Tools-Kit Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.
+See more backgrounds, colors, styles & consoles types by clicking [here](#options-styles)
 
 ```javascript
 const { logger } = require('tools-kit');
@@ -242,6 +243,80 @@ logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: 7
 ```
+
+## Styles Options
+
+### options.background
+
+- `black`
+- `gray`
+- `grey`
+- `lRed`
+- `lGreen`
+- `lYellow`
+- `lBlue`
+- `lMagenta`
+- `lCyan`
+- `lWhite`
+- `bRed`
+- `bGreen`
+- `bYellow`
+- `bBlue`
+- `bMagenta`
+- `bCyan`
+- `bWhite`
+
+### options.colors
+
+- `black`
+- `gray`
+- `grey`
+- `lRed`
+- `lGreen`
+- `lYellow`
+- `lBlue`
+- `lMagenta`
+- `lCyan`
+- `lWhite`
+- `bRed`
+- `bGreen`
+- `bYellow`
+- `bBlue`
+- `bMagenta`
+- `bCyan`
+- `bWhite`
+
+### options.style
+
+- `reset` - Resets the current color to the default console color.
+- `bold` - Make the text bold.
+- `dim` - Emitting only a small amount of the text light.
+- `italic` - Make the text *italic* styled - **Not widely supported**
+- `underline` - Make the text _underline_ styled - **Not widely supported**
+- `inverse`- Inverse the background and the foreground colors.
+- `hidden` - Prints the text, but makes it invisible.
+- `strikethrough` - Puts a horizontal line through the center of the text - **Not widely supported**
+
+### options.type
+
+- `log` - Prints to `stdout` with newline. Multiple arguments can be passed, with the first used as the primary message and all additional used as substitution values similar to `printf(3)` (the arguments are all passed to `util.format()`).
+- `error` - Prints to `stderr` with newline. Multiple arguments can be passed, with the first used as the primary message and all additional used as substitution values similar to `printf(3)` (the arguments are all passed to `util.format()`).
+- `trace` - Prints to `stderr` the string 'Trace: ', followed by the `util.format()` formatted message and stack trace to the current position in the code.
+- `debug`- The `console.debug()` function is an alias for `console.log()`.
+- `info` - The `console.info()` function is an alias for `console.log()`.
+- `warn` - The `console.warn()` function is an alias for `console.error()`.
+
+### options.time
+
+- The `options.time` can be either of this two:
+- `Boolean` (true/false) - If to include the current time with the stock format when logging
+- `String` ([moment][moment] time format) - A custom moment time format to use when logging
+
+### options.tag
+
+- The `options.tag` can be either of this two:
+- `Boolean` (true/false) - If to include the a tag when logging
+- `String` - A custom string value to use as a tag when logging
 
 ## License
 

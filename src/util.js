@@ -31,13 +31,13 @@ const backgrounds = {
   lCyan: '\u001B[46m',
   lWhite: '\u001B[47m',
 
-  hRed: '\u001B[101m',
-  hGreen: '\u001B[102m',
-  hYellow: '\u001B[103m',
-  hBlue: '\u001B[104m',
-  hMagenta: '\u001B[105m',
-  hCyan: '\u001B[106m',
-  hWhite: '\u001B[107m'
+  bRed: '\u001B[101m',
+  bGreen: '\u001B[102m',
+  bYellow: '\u001B[103m',
+  bBlue: '\u001B[104m',
+  bMagenta: '\u001B[105m',
+  bCyan: '\u001B[106m',
+  bWhite: '\u001B[107m'
 };
 
 const colors = {
@@ -53,13 +53,13 @@ const colors = {
   lCyan: '\u001B[36m',
   lWhite: '\u001B[37m',
 
-  hRed: '\u001B[91m',
-  hGreen: '\u001B[92m',
-  hYellow: '\u001B[93m',
-  hBlue: '\u001B[94m',
-  hMagenta: '\u001B[95m',
-  hCyan: '\u001B[96m',
-  hWhite: '\u001B[97m'
+  bRed: '\u001B[91m',
+  bGreen: '\u001B[92m',
+  bYellow: '\u001B[93m',
+  bBlue: '\u001B[94m',
+  bMagenta: '\u001B[95m',
+  bCyan: '\u001B[96m',
+  bWhite: '\u001B[97m'
 };
 
 const styles = {
@@ -80,11 +80,11 @@ function checkAvailability(from, item) {
   const cls = Object.keys(colors);
 
   if (from === 'backgrounds') {
-    if (!(bgs.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+    if (!(bgs.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('b'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
 
     return bgs.includes(item);
   } else if (from === 'colors') {
-    if (!(cls.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+    if (!(cls.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('b'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
 
     return cls.includes(item);
   } else if (from === 'styles') return Object.keys(styles).includes(item);
@@ -99,11 +99,11 @@ function get(from, item) {
   if (!checkAvailability(from, item)) return false;
 
   if (from === 'backgrounds') {
-    if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+    if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('b'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
 
     return backgrounds[item];
   } else if (from === 'colors') {
-    if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('h'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
+    if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('b'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
 
     return colors[item];
   } else if (from === 'styles') return styles[item];
