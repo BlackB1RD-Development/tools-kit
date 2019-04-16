@@ -203,7 +203,7 @@ logger.log({ tag: 'STYLE' }, color.style({ style: 'bold' }, 'styled style'), 'no
 // Console > [20/02/2020 - 00:00:00 | STYLE]: styled style normal style
 ```
 
-Using premade cool colors maps:
+Using pre-made cool colors maps:
 
 ```javascript
 const { logger, color } = require('tools-kit');
@@ -214,8 +214,8 @@ logger.log({ tag: 'RAINBOW' }, color.rainbow('rainbow styled-text'), 'normal tex
 logger.log({ tag: 'RANDOM' }, color.random('random styled-text'), 'normal text');
 // Console > [20/02/2020 - 00:00:00 | RANDOM]: random styled-text normal text
 
-logger.log({ tag: 'ZABRA' }, color.zabra('zabra styled-text'), 'normal text');
-// Console > [20/02/2020 - 00:00:00 | ZABRA]: zabra styled-text zabra styled-text normal text
+logger.log({ tag: 'ZEBRA' }, color.zebra('zebra styled-text'), 'normal text');
+// Console > [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text zebra styled-text normal text
 ```
 
 ## Tools-Kit Utilities

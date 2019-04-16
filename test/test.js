@@ -58,9 +58,9 @@ describe('Color', () => {
     });
   });
 
-  describe('#zabra', () => {
+  describe('#zebra', () => {
     it('shouldn\'t return an Error', () => {
-      assert.deepStrictEqual(typeof color.zabra('zabra colored-text'), 'string');
+      assert.deepStrictEqual(typeof color.zebra('zebra colored-text'), 'string');
     });
   });
 

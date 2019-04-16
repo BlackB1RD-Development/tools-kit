@@ -6,15 +6,6 @@
 // Requires - Files
 const { logger } = require('..');
 
-const settings = { // Support custom log options
-  background: 'black',
-  color: 'blue',
-  style: 'bold',
-  type: 'info',
-  time: true,
-  tag: 'Black & Blue'
-};
-
 logger.log('content');
 // Console > [20/02/2020 - 00:00:00 | LOG]: content
 
@@ -57,6 +48,15 @@ Console > [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |
 Console > [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|
 Console > [20/02/2020 - 00:00:00 | FIGLET]:
 */
+
+const settings = { // Support custom log options
+  background: 'black',
+  color: 'blue',
+  style: 'bold',
+  type: 'info',
+  time: true,
+  tag: 'Black & Blue'
+};
 
 logger.log(settings, 'content');
 // Console > [20/02/2020 - 00:00:00 | Black & Blue]: content

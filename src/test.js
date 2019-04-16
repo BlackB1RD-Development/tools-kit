@@ -49,19 +49,10 @@ logger.log({ tag: 'RAINBOW' }, color.rainbow('rainbow styled-text'), 'normal tex
 logger.log({ tag: 'RANDOM' }, color.random('random styled-text'), 'normal text');
 // Console > [20/02/2020 - 00:00:00 | RANDOM]: random styled-text normal text
 
-logger.log({ tag: 'ZABRA' }, color.zabra('zabra styled-text'), 'normal text');
-// Console > [20/02/2020 - 00:00:00 | ZABRA]: zabra styled-text zabra styled-text normal text
+logger.log({ tag: 'ZEBRA' }, color.zebra('zebra styled-text'), 'normal text');
+// Console > [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text zebra styled-text normal text
 
 /* Logger Manager */
-
-const settings = { // Support custom log options
-  background: 'black',
-  color: 'blue',
-  style: 'bold',
-  type: 'info',
-  time: true,
-  tag: 'Black & Blue'
-};
 
 logger.log('content');
 // Console > [20/02/2020 - 00:00:00 | LOG]: content
@@ -105,6 +96,15 @@ Console > [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |
 Console > [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|
 Console > [20/02/2020 - 00:00:00 | FIGLET]:
 */
+
+const settings = { // Support custom log options
+  background: 'black',
+  color: 'blue',
+  style: 'bold',
+  type: 'info',
+  time: true,
+  tag: 'Black & Blue'
+};
 
 logger.log(settings, 'content');
 // Console > [20/02/2020 - 00:00:00 | Black & Blue]: content
