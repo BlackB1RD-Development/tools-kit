@@ -93,7 +93,7 @@ hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
 ## Tools-Kit Logger Manager
 
 With Tools-Kit Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.
-See more backgrounds, colors, styles & consoles types by clicking [here](#options-styles)
+See more backgrounds, colors, styles & consoles types by clicking [here](#logger-options)
 
 ```javascript
 const { logger } = require('tools-kit');
@@ -244,7 +244,7 @@ logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: 7
 ```
 
-## Styles Options
+## Logger Options
 
 ### options.background
 
