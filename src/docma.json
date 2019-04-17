@@ -3,15 +3,19 @@
 		"title": "Tools-Kit",
 		"server": "github",
 		"routing": "path",
-		"entrance": "content:readme"
+		"entrance": "content:readme",
+		"favicon": "./docs/img/logo.ico"
 	},
 	"template": {
 		"options": {
 			"title": {
-				"label": "Tools-Kit",
+				"label": "",
 				"href": "/"
 			},
-			"logo": "./src/logo.png",
+			"logo": {
+				"dark": "./docs/img/logo-dark.png",
+				"light": "./docs/img/logo-light.png"
+			},
 			"sidebar": {
 				"enabled": true,
 				"collapsed": false,
