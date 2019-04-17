@@ -13,8 +13,8 @@
 				"href": "/"
 			},
 			"logo": {
-				"dark": "./docs/img/logo-dark.png",
-				"light": "./docs/img/logo-light.png"
+				"dark": "./img/logo-dark.png",
+				"light": "/img/logo-light.png"
 			},
 			"sidebar": {
 				"enabled": true,
