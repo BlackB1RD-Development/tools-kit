@@ -14,7 +14,7 @@
 			},
 			"logo": {
 				"dark": "./img/logo-dark.png",
-				"light": "/img/logo-light.png"
+				"light": "./img/logo-light.png"
 			},
 			"sidebar": {
 				"enabled": true,
