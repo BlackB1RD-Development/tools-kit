@@ -1,9 +1,12 @@
 <h1 align="center">
-  <img width="500" src="src/logo.png" alt="Tools-Kit Logo">
+  <a href="https://tools-kit.js.org/">
+    <img width="500" src="src/logo.png" alt="Tools-Kit Logo">
+  </a>
 </h1>
-<p align="center">An easy to use, powerful and multi-functionality tools-kit library for NodeJS written entirely in JavaScript.</p>
-
 <p align="center">
+  An easy to use, powerful and multi-functionality tools-kit library for NodeJS written entirely in JavaScript.
+  <br>
+  <br>
   <a href="https://www.npmjs.com/package/tools-kit">
     <img src="https://img.shields.io/npm/v/tools-kit.svg?style=flat-square" alt="npm" />
   </a>
