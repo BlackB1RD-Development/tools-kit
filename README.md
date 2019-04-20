@@ -13,6 +13,7 @@
   <a href="https://github.com/BlackB1RD-Development/tools-kit">
     <img src="https://img.shields.io/github/release/BlackB1RD-Development/tools-kit.svg?style=flat-square" alt="release" />
   </a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit.svg?type=shield"/></a>
   <a href="https://www.npmjs.com/package/tools-kit">
     <img src="https://img.shields.io/npm/dt/tools-kit.svg?style=flat-square" alt="downloads" />
   </a>
@@ -41,6 +42,9 @@
   <br />
   <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a> (<b><a href="https://github.com/RealBlackB1RD">@RealBlackB1RD</a></b>). All rights reserved ©</sub>
 </p>
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit?ref=badge_large)
 
 ## Features
 
