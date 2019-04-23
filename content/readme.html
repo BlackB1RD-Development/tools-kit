@@ -33,6 +33,9 @@
   <a href="https://travis-ci.org/BlackB1RD-Development/tools-kit">
     <img src="https://travis-ci.org/BlackB1RD-Development/tools-kit.svg?branch=master" alt="Build" style="max-width: 100%;">
   </a>
+  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit?ref=badge_shield" alt="FOSSA Status">
+    <img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit.svg?type=shield" style="max-width: 100%;">
+  </a>
   <a href="https://github.com/BlackB1RD-Development/tools-kit">
     <img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="Code Style" style="max-width: 100%;">
   </a>
@@ -44,7 +47,7 @@
   <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a> (<b><a href="https://github.com/RealBlackB1RD">@RealBlackB1RD</a></b>). All rights reserved ©</sub>
 </p>
 
-<h2 id="features">Features</h2>
+<h1 id="features">Features</h1>
 <hr />
 <ul>
 <li>A <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a> Client that can publish your beautiful code online or fetching an existing one.</li>
@@ -54,10 +57,10 @@
 <li>Extremely configurable and debuggable.</li>
 <li>Well documented.</li>
 </ul>
-<h2 id="installation">Installation</h2>
+<h1 id="installation">Installation</h1>
 <hr />
 <pre><code class="console">npm install tools-kit</code></pre>
-<h2 id="class-examples">Class Examples</h2>
+<h1 id="class-examples">Class Examples</h1>
 <hr />
 <p>Click to jump between class examples:</p>
 <table>
@@ -68,23 +71,23 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a href="#tools-kit-hastebin-client">Hastebin Client</a></td>
+<td><a href="#tools-kit-hastebin-client"><strong>Hastebin Client</strong></a></td>
 <td>Post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a></td>
 </tr>
 <tr>
-<td><a href="#tools-kit-logger-manager">Logger</a></td>
+<td><a href="#tools-kit-logger-manager"><strong>Logger</strong></a></td>
 <td>Log a styled and colored text into the console</td>
 </tr>
 <tr>
-<td><a href="#tools-kit-color-manager">Color</a></td>
+<td><a href="#tools-kit-color-manager"><strong>Color</strong></a></td>
 <td>Transfer your simple text into a styled and modern one (Console support only)</td>
 </tr>
 <tr>
-<td><a href="#tools-kit-utilities">Util</a></td>
+<td><a href="#tools-kit-utilities"><strong>Util</strong></a></td>
 <td>A collection of functions that everyone use in one simple line</td>
 </tr>
 </tbody></table>
-<h2 id="tools-kit-hastebin-client">Tools-Kit Hastebin Client</h2>
+<h2 id="hastebin-client">Hastebin Client</h2>
 <hr />
 <p>With Tools-Kit <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a> Client you can post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a>.</p>
 <pre><code class="javascript">const { logger, hastebin } = require('tools-kit');
@@ -108,10 +111,9 @@ hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
     logger.log({ background: 'black', color: 'red', type: 'error', tag: 'POST ERROR' }, postErr);
     // Console &gt; [20/02/2020 - 00:00:00 | POST ERROR]: Post Error
   });</code></pre>
-<h2 id="tools-kit-logger-manager">Tools-Kit Logger Manager</h2>
+<h2 id="logger-manager">Logger Manager</h2>
 <hr />
-<p>With Tools-Kit Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.
-See more backgrounds, colors, styles &amp; consoles types by clicking <a href="#logger-options">here</a></p>
+<p>With Tools-Kit Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.</p>
 <pre><code class="javascript">const { logger } = require('tools-kit');
 
 logger.log('content');
@@ -123,17 +125,17 @@ logger.important('Important log');
 logger.success('Success log');
 // Console &gt; [20/02/2020 - 00:00:00 | SUCCESS]: Success log
 
-logger.debug('Debugging log');
-// Console &gt; [20/02/2020 - 00:00:00 | DEBUG]: Debugging log
-
-logger.error('Error log');
-// Console &gt; [20/02/2020 - 00:00:00 | ERROR]: Error log
-
 logger.fatal('Fatal log');
 // Console &gt; [20/02/2020 - 00:00:00 | FATAL]: Fatal log
 
 logger.trace('Trace log');
 // Console &gt; [20/02/2020 - 00:00:00 | TRACE]: Trace log
+
+logger.error('Error log');
+// Console &gt; [20/02/2020 - 00:00:00 | ERROR]: Error log
+
+logger.debug('Debug log');
+// Console &gt; [20/02/2020 - 00:00:00 | DEBUG]: Debugging log
 
 logger.info('Information log');
 // Console &gt; [20/02/2020 - 00:00:00 | INFO]: Information log
@@ -159,9 +161,9 @@ Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:
 <p>Settings custom styling options:</p>
 <pre><code class="javascript">const { logger } = require('tools-kit');
 
-const settings = { // Support custom log options
+const settings = { // Support custom logging options
   background: 'black',
-  color: 'blue',
+  color: 'bMagenta',
   style: 'bold',
   type: 'info',
   time: true,
@@ -195,7 +197,8 @@ logger // Support chain logging
   Console &gt; [20/02/2020 - 00:00:00 | SECOND LOG]: Second content
   Console &gt; [20/02/2020 - 00:00:00 | THIRD LOG]: Third content
 */</code></pre>
-<h2 id="tools-kit-color-manager">Tools-Kit Color Manager</h2>
+<p>See more backgrounds, colors, styles &amp; consoles types by clicking <a href="#logger-options"><strong>here</strong></a></p>
+<h2 id="color-manager">Color Manager</h2>
 <hr />
 <p>With Tools-Kit Color Manager you can transfer your simple text into a styled and modern one.</p>
 <pre><code class="javascript">// Requires - Files
@@ -220,28 +223,61 @@ logger.log({ tag: 'RANDOM' }, color.random('random styled-text'), 'normal text')
 
 logger.log({ tag: 'ZEBRA' }, color.zebra('zebra styled-text'), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text zebra styled-text normal text</code></pre>
-<h2 id="tools-kit-utilities">Tools-Kit Utilities</h2>
+<h2 id="utilities">Utilities</h2>
 <hr />
 <p>With Tools-Kit Utilities you can use the functions that everyone uses in one simple line.</p>
 <pre><code class="javascript">const { logger, util } = require('tools-kit');
 
-logger.log({ tag: 'OBJECT?' }, util.isObject(new Array()));
-// Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: false
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'test'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name', 'test'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name', 'not test'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has(['name', 'test'], 'name'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has(['test', 'not test'], 'name'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'ARRAY?' }, util.isArray(new Array()));
+// Console &gt; [20/02/2020 - 00:00:00 | ARRAY?]: true
+
+logger.log({ tag: 'ARRAY?' }, util.isArray(new Object()));
+// Console &gt; [20/02/2020 - 00:00:00 | ARRAY?]: false
+
+logger.log({ tag: 'ARRAY?' }, util.isArray([]));
+// Console &gt; [20/02/2020 - 00:00:00 | ARRAY?]: true
+
+logger.log({ tag: 'ARRAY?' }, util.isArray({}));
+// Console &gt; [20/02/2020 - 00:00:00 | ARRAY?]: false
 
 logger.log({ tag: 'OBJECT?' }, util.isObject(new Object()));
 // Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: true
 
-logger.log({ tag: 'OBJECT?' }, util.isObject([]));
+logger.log({ tag: 'OBJECT?' }, util.isObject(new Array()));
 // Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: false
 
 logger.log({ tag: 'OBJECT?' }, util.isObject({}));
 // Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: true
 
+logger.log({ tag: 'OBJECT?' }, util.isObject([]));
+// Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: false
+
 logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
-// Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: dog
+// Console &gt; [20/02/2020 - 00:00:00 | RANDOM ITEM]: dog
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
-// Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: 7</code></pre>
+// Console &gt; [20/02/2020 - 00:00:00 | RANDOM ITEM]: 7
+
+logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Default is true
+// Console &gt; [20/02/2020 - 00:00:00 | RANDOM ITEM]: 9.051817302079687</code></pre>
 <h2 id="logger-options">Logger Options</h2>
 <hr />
 <h3 id="optionsbackground">options.background</h3>
@@ -305,37 +341,37 @@ logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
 <li><code>warn</code> - The <code>console.warn()</code> function is an alias for <code>console.error()</code>.</li>
 </ul>
 <h3 id="optionstime">options.time</h3>
+<h4 id="the-optionstime-can-be-either-of-this-two">The <code>options.time</code> can be either of this two</h4>
 <ul>
-<li>The <code>options.time</code> can be either of this two:</li>
-<li><code>Boolean</code> (true/false) - If to include the current time with the stock format when logging</li>
-<li><code>String</code> (<a href="https://www.npmjs.com/package/moment">moment</a> time format) - A custom moment time format to use when logging</li>
+<li><code>Boolean</code> (true/false) - If to include the current time and date with the stock format when logging (Stock used <a href="https://www.npmjs.com/package/moment"><strong>moment</strong></a> format: DD/M/YYYY - H:mm:ss)</li>
+<li><code>String</code> - A custom <a href="https://www.npmjs.com/package/moment"><strong>moment</strong></a> time format to use when logging</li>
 </ul>
 <h3 id="optionstag">options.tag</h3>
+<h4 id="the-optionstag-can-be-either-of-this-two">The <code>options.tag</code> can be either of this two</h4>
 <ul>
-<li>The <code>options.tag</code> can be either of this two:</li>
 <li><code>Boolean</code> (true/false) - If to include the a tag when logging</li>
-<li><code>String</code> - A custom string value to use as a tag when logging</li>
+<li><code>String</code> - A custom string value to use as a tag when logging (Case sensitive)</li>
 </ul>
-<h2 id="license">License</h2>
-<hr />
-<p><a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/LICENSE.md"><strong>MIT</strong></a></p>
-<h2 id="changelog">Changelog</h2>
-<hr />
-<p>See the <a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/CHANGELOG.md"><strong>Changes Log</strong></a> for more information about each update.</p>
-<h2 id="documentations">Documentations</h2>
+<h1 id="documentations">Documentations</h1>
 <hr />
 <p>Read the <a href="https://tools-kit.js.org/api"><strong>Documentations</strong></a> for more information about each method.</p>
-<h2 id="related-modules">Related Modules</h2>
+<h1 id="maintainers">Maintainers</h1>
 <hr />
 <ul>
-<li><a href="https://www.npmjs.com/package/node-fetch">node-fetch</a> — A light-weight module that brings window.fetch to Node.js.</li>
-<li><a href="https://www.npmjs.com/package/moment">moment</a> — A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.</li>
-<li><a href="https://www.npmjs.com/package/figlet">figlet</a> — Creates ASCII Art from text. A full implementation of the FIGfont spec.</li>
+<li><a href="https://github.com/RealBlackB1RD"><strong>BlackB1RD</strong></a></li>
+<li><a href="https://github.com/JamesParkDev"><strong>JamesParkDev</strong></a></li>
 </ul>
-<h2 id="maintainers">Maintainers</h2>
+<h1 id="changelog">Changelog</h1>
+<hr />
+<p>See the <a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/CHANGELOG.md"><strong>Changes Log</strong></a> for more information about each update.</p>
+<h1 id="license">License</h1>
+<hr />
+<p><a href="https://app.fossa.io/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit?ref=badge_large"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit.svg?type=large" alt="FOSSA Status" style="max-width: 100%;"></a></p>
+<h1 id="related-modules">Related Modules</h1>
 <hr />
 <ul>
-<li><a href="https://github.com/RealBlackB1RD">BlackB1RD</a></li>
-<li><a href="https://github.com/JamesParkDev">JamesParkDev</a></li>
+<li><a href="https://www.npmjs.com/package/node-fetch"><strong>node-fetch</strong></a> — A light-weight module that brings window.fetch to Node.js.</li>
+<li><a href="https://www.npmjs.com/package/moment"><strong>moment</strong></a> — A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.</li>
+<li><a href="https://www.npmjs.com/package/figlet"><strong>figlet</strong></a> — Creates ASCII Art from text. A full implementation of the FIGfont spec.</li>
 </ul>
 </body></html>
