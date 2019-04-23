@@ -15,17 +15,17 @@ logger.important('Important log');
 logger.success('Success log');
 // Console > [20/02/2020 - 00:00:00 | SUCCESS]: Success log
 
-logger.debug('Debugging log');
-// Console > [20/02/2020 - 00:00:00 | DEBUG]: Debugging log
-
-logger.error('Error log');
-// Console > [20/02/2020 - 00:00:00 | ERROR]: Error log
-
 logger.fatal('Fatal log');
 // Console > [20/02/2020 - 00:00:00 | FATAL]: Fatal log
 
 logger.trace('Trace log');
 // Console > [20/02/2020 - 00:00:00 | TRACE]: Trace log
+
+logger.error('Error log');
+// Console > [20/02/2020 - 00:00:00 | ERROR]: Error log
+
+logger.debug('Debug log');
+// Console > [20/02/2020 - 00:00:00 | DEBUG]: Debugging log
 
 logger.info('Information log');
 // Console > [20/02/2020 - 00:00:00 | INFO]: Information log
@@ -49,9 +49,9 @@ Console > [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|
 Console > [20/02/2020 - 00:00:00 | FIGLET]:
 */
 
-const settings = { // Support custom log options
+const settings = { // Support custom logging options
   background: 'black',
-  color: 'blue',
+  color: 'bMagenta',
   style: 'bold',
   type: 'info',
   time: true,

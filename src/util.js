@@ -23,21 +23,21 @@ const backgrounds = {
   gray: '\u001B[100m',
   grey: '\u001B[100m',
 
-  lRed: '\u001B[41m',
-  lGreen: '\u001B[42m',
-  lYellow: '\u001B[43m',
-  lBlue: '\u001B[44m',
-  lMagenta: '\u001B[45m',
-  lCyan: '\u001B[46m',
-  lWhite: '\u001B[47m',
+  lred: '\u001B[41m',
+  lgreen: '\u001B[42m',
+  lyellow: '\u001B[43m',
+  lblue: '\u001B[44m',
+  lmagenta: '\u001B[45m',
+  lcyan: '\u001B[46m',
+  lwhite: '\u001B[47m',
 
-  bRed: '\u001B[101m',
-  bGreen: '\u001B[102m',
-  bYellow: '\u001B[103m',
-  bBlue: '\u001B[104m',
-  bMagenta: '\u001B[105m',
-  bCyan: '\u001B[106m',
-  bWhite: '\u001B[107m'
+  bred: '\u001B[101m',
+  bgreen: '\u001B[102m',
+  byellow: '\u001B[103m',
+  bblue: '\u001B[104m',
+  bmagenta: '\u001B[105m',
+  bcyan: '\u001B[106m',
+  bwhite: '\u001B[107m'
 };
 
 const colors = {
@@ -45,21 +45,21 @@ const colors = {
   gray: '\u001B[90m',
   grey: '\u001B[90m',
 
-  lRed: '\u001B[31m',
-  lGreen: '\u001B[32m',
-  lYellow: '\u001B[33m',
-  lBlue: '\u001B[34m',
-  lMagenta: '\u001B[35m',
-  lCyan: '\u001B[36m',
-  lWhite: '\u001B[37m',
+  lred: '\u001B[31m',
+  lgreen: '\u001B[32m',
+  lyellow: '\u001B[33m',
+  lblue: '\u001B[34m',
+  lmagenta: '\u001B[35m',
+  lcyan: '\u001B[36m',
+  lwhite: '\u001B[37m',
 
-  bRed: '\u001B[91m',
-  bGreen: '\u001B[92m',
-  bYellow: '\u001B[93m',
-  bBlue: '\u001B[94m',
-  bMagenta: '\u001B[95m',
-  bCyan: '\u001B[96m',
-  bWhite: '\u001B[97m'
+  bred: '\u001B[91m',
+  bgreen: '\u001B[92m',
+  byellow: '\u001B[93m',
+  bblue: '\u001B[94m',
+  bmagenta: '\u001B[95m',
+  bcyan: '\u001B[96m',
+  bwhite: '\u001B[97m'
 };
 
 const styles = {
@@ -73,40 +73,27 @@ const styles = {
   strikethrough: '\u001B[9m'
 };
 
+const bgs = Object.keys(backgrounds);
+const cls = Object.keys(colors);
+const sty = Object.keys(styles);
+
 function checkAvailability(from, item) {
-  if (typeof from !== 'string' || typeof item !== 'string') return new Error('The parameters must be a string value.');
-
-  const bgs = Object.keys(backgrounds);
-  const cls = Object.keys(colors);
-
-  if (from === 'backgrounds') {
-    if (!(bgs.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('b'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
-
-    return bgs.includes(item);
-  } else if (from === 'colors') {
-    if (!(cls.includes(item) && item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('b'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
-
-    return cls.includes(item);
-  } else if (from === 'styles') return Object.keys(styles).includes(item);
+  if (from === 'backgrounds') return bgs.includes(item);
+  else if (from === 'colors') return cls.includes(item);
+  else if (from === 'styles') return sty.includes(item);
   else return false;
 }
 
 function get(from, item) {
-  if (typeof from !== 'string' || typeof item !== 'string') return new Error('The parameters must be a string value.');
+  if (typeof from !== 'string' || typeof item !== 'string') throw new Error('The parameters must be a string value.');
 
   item = item.toLowerCase();
+  item = bgs.includes(item) || cls.includes(item) || sty.includes(item) ? item : 'b' + item;
 
   if (!checkAvailability(from, item)) return false;
-
-  if (from === 'backgrounds') {
-    if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('b'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
-
-    return backgrounds[item];
-  } else if (from === 'colors') {
-    if (!(item === 'black' || item === 'gray' || item === 'grey' && item.startsWith('l') && item.startsWith('b'))) item = 'l' + item.replace(item.charAt(0), item.charAt(0).toUpperCase());
-
-    return colors[item];
-  } else if (from === 'styles') return styles[item];
+  else if (from === 'backgrounds') return backgrounds[item];
+  else if (from === 'colors') return colors[item];
+  else if (from === 'styles') return styles[item];
   else return false;
 }
 

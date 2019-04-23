@@ -1,6 +1,6 @@
 {
   "name": "tools-kit",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "An easy to use, powerful and multi-functionality tools-kit library for NodeJS written entirely in JavaScript.",
   "keywords": [
     "console",
@@ -25,6 +25,7 @@
     "command-line styles",
     "hastebin",
     "pastebin",
+    "logger",
     "Array",
     "Object",
     "isObject",
@@ -65,10 +66,9 @@
     "url": "https://github.com/BlackB1RD-Development/tools-kit.git"
   },
   "scripts": {
-    "prebuild": "xo && nyc mocha && docma -c src/docma.json -d docs",
-    "build": "nyc report --reporter=text-lcov > node_modules/.bin/coveralls && gh-pages -d docs",
-    "pretest": "xo && nyc mocha",
-    "test": "nyc report --reporter=text-lcov > node_modules/.bin/coveralls"
+    "prebuild": "xo && nyc mocha",
+    "build": "docma -c src/docma.json -d docs && gh-pages -d docs",
+    "test": "xo && nyc mocha"
   },
   "dependencies": {
     "node-fetch": "^2.3.0",

@@ -112,7 +112,7 @@
 		"tasks": true,
 		"emoji": true
 	},
-	"src": ["./lib/Clients/Hastebin.js", "./lib/Managers/Logger.js", "./lib/Managers/Color.js", "./lib/Utilities/Util.js", "./src/index.js", "./*.md"],
+	"src": ["./lib/Clients/Hastebin.js", "./lib/Managers/Logger.js", "./lib/Managers/Color.js", "./lib/Utilities/Util.js", "./index.js", "./*.md"],
 	"dest": "./docs/",
 	"clean": false
 }

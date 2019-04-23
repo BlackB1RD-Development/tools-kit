@@ -14,23 +14,71 @@ const hastebin = tools.hastebin;
 
 /* Util Utilities */
 
-logger.log({ tag: 'OBJECT?' }, util.isObject(new Array()));
-// Console > [20/02/2020 - 00:00:00 | OBJECT?]: false
+logger.log({ tag: 'HAS?' }, util.has({}, 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has([], 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'test'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name', 'test'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name', 'not test'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has(['name', 'test'], 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has(['test', 'not test'], 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'test', 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'name', 'test'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'ARRAY?' }, util.isArray(new Array()));
+// Console > [20/02/2020 - 00:00:00 | ARRAY?]: true
+
+logger.log({ tag: 'ARRAY?' }, util.isArray(new Object()));
+// Console > [20/02/2020 - 00:00:00 | ARRAY?]: false
+
+logger.log({ tag: 'ARRAY?' }, util.isArray([]));
+// Console > [20/02/2020 - 00:00:00 | ARRAY?]: true
+
+logger.log({ tag: 'ARRAY?' }, util.isArray({}));
+// Console > [20/02/2020 - 00:00:00 | ARRAY?]: false
 
 logger.log({ tag: 'OBJECT?' }, util.isObject(new Object()));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: true
 
-logger.log({ tag: 'OBJECT?' }, util.isObject([]));
+logger.log({ tag: 'OBJECT?' }, util.isObject(new Array()));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: false
 
 logger.log({ tag: 'OBJECT?' }, util.isObject({}));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: true
 
+logger.log({ tag: 'OBJECT?' }, util.isObject([]));
+// Console > [20/02/2020 - 00:00:00 | OBJECT?]: false
+
 logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
-// Console > [20/02/2020 - 00:00:00 | OBJECT?]: dog
+// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: dog
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
-// Console > [20/02/2020 - 00:00:00 | OBJECT?]: 7
+// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: 7
+
+logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Default is true
+// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: 9.051817302079687
 
 /* Color Manager */
 
@@ -63,17 +111,17 @@ logger.important('Important log');
 logger.success('Success log');
 // Console > [20/02/2020 - 00:00:00 | SUCCESS]: Success log
 
-logger.debug('Debugging log');
-// Console > [20/02/2020 - 00:00:00 | DEBUG]: Debugging log
-
-logger.error('Error log');
-// Console > [20/02/2020 - 00:00:00 | ERROR]: Error log
-
 logger.fatal('Fatal log');
 // Console > [20/02/2020 - 00:00:00 | FATAL]: Fatal log
 
 logger.trace('Trace log');
 // Console > [20/02/2020 - 00:00:00 | TRACE]: Trace log
+
+logger.error('Error log');
+// Console > [20/02/2020 - 00:00:00 | ERROR]: Error log
+
+logger.debug('Debug log');
+// Console > [20/02/2020 - 00:00:00 | DEBUG]: Debugging log
 
 logger.info('Information log');
 // Console > [20/02/2020 - 00:00:00 | INFO]: Information log
@@ -97,9 +145,9 @@ Console > [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|
 Console > [20/02/2020 - 00:00:00 | FIGLET]:
 */
 
-const settings = { // Support custom log options
+const settings = { // Support custom logging options
   background: 'black',
-  color: 'blue',
+  color: 'bMagenta',
   style: 'bold',
   type: 'info',
   time: true,

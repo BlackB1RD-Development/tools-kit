@@ -31,6 +31,9 @@
   <a href="https://travis-ci.org/BlackB1RD-Development/tools-kit">
     <img src="https://travis-ci.org/BlackB1RD-Development/tools-kit.svg?branch=master" alt="Build" />
   </a>
+  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit?ref=badge_shield" alt="FOSSA Status">
+    <img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit.svg?type=shield"/>
+  </a>
   <a href="https://github.com/BlackB1RD-Development/tools-kit">
     <img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="Code Style" />
   </a>
@@ -42,7 +45,7 @@
   <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a> (<b><a href="https://github.com/RealBlackB1RD">@RealBlackB1RD</a></b>). All rights reserved ©</sub>
 </p>
 
-## Features
+# Features
 
 - A [**Hastebin**][hastebin] Client that can publish your beautiful code online or fetching an existing one.
 - A Logger Manager that can style your logs with all the known Node.js console methods.
@@ -51,24 +54,24 @@
 - Extremely configurable and debuggable.
 - Well documented.
 
-## Installation
+# Installation
 
 ```console
 npm install tools-kit
 ```
 
-## Class Examples
+# Class Examples
 
 Click to jump between class examples:
 
-|                  Class  Name                  |                                 Class Description                                  |
-|                ---------------                |   ------------------------------------------------------------------------------   |
-| [Hastebin Client](#tools-kit-hastebin-client) |              Post and fetch code easily from [**Hastebin**][hastebin]              |
-|      [Logger](#tools-kit-logger-manager)      |                   Log a styled and colored text into the console                   |
-|       [Color](#tools-kit-color-manager)       |    Transfer your simple text into a styled and modern one (Console support only)   |
-|          [Util](#tools-kit-utilities)         |           A collection of functions that everyone use in one simple line           |
+|                   Class  Name                   |                                 Class Description                                  |
+|                 ---------------                 |   ------------------------------------------------------------------------------   |
+|[**Hastebin Client**](#tools-kit-hastebin-client)|              Post and fetch code easily from [**Hastebin**][hastebin]              |
+|     [**Logger**](#tools-kit-logger-manager)     |                   Log a styled and colored text into the console                   |
+|      [**Color**](#tools-kit-color-manager)      |    Transfer your simple text into a styled and modern one (Console support only)   |
+|         [**Util**](#tools-kit-utilities)        |           A collection of functions that everyone use in one simple line           |
 
-## Tools-Kit Hastebin Client
+## Hastebin Client
 
 With Tools-Kit [**Hastebin**][hastebin] Client you can post and fetch code easily from [**Hastebin**][hastebin].
 
@@ -96,10 +99,9 @@ hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
   });
 ```
 
-## Tools-Kit Logger Manager
+## Logger Manager
 
 With Tools-Kit Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.
-See more backgrounds, colors, styles & consoles types by clicking [here](#logger-options)
 
 ```javascript
 const { logger } = require('tools-kit');
@@ -113,17 +115,17 @@ logger.important('Important log');
 logger.success('Success log');
 // Console > [20/02/2020 - 00:00:00 | SUCCESS]: Success log
 
-logger.debug('Debugging log');
-// Console > [20/02/2020 - 00:00:00 | DEBUG]: Debugging log
-
-logger.error('Error log');
-// Console > [20/02/2020 - 00:00:00 | ERROR]: Error log
-
 logger.fatal('Fatal log');
 // Console > [20/02/2020 - 00:00:00 | FATAL]: Fatal log
 
 logger.trace('Trace log');
 // Console > [20/02/2020 - 00:00:00 | TRACE]: Trace log
+
+logger.error('Error log');
+// Console > [20/02/2020 - 00:00:00 | ERROR]: Error log
+
+logger.debug('Debug log');
+// Console > [20/02/2020 - 00:00:00 | DEBUG]: Debugging log
 
 logger.info('Information log');
 // Console > [20/02/2020 - 00:00:00 | INFO]: Information log
@@ -153,9 +155,9 @@ Settings custom styling options:
 ```javascript
 const { logger } = require('tools-kit');
 
-const settings = { // Support custom log options
+const settings = { // Support custom logging options
   background: 'black',
-  color: 'blue',
+  color: 'bMagenta',
   style: 'bold',
   type: 'info',
   time: true,
@@ -191,7 +193,9 @@ logger // Support chain logging
 */
 ```
 
-## Tools-Kit Color Manager
+See more backgrounds, colors, styles & consoles types by clicking [**here**](#logger-options)
+
+## Color Manager
 
 With Tools-Kit Color Manager you can transfer your simple text into a styled and modern one.
 
@@ -224,30 +228,63 @@ logger.log({ tag: 'ZEBRA' }, color.zebra('zebra styled-text'), 'normal text');
 // Console > [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text zebra styled-text normal text
 ```
 
-## Tools-Kit Utilities
+## Utilities
 
 With Tools-Kit Utilities you can use the functions that everyone uses in one simple line.
 
 ```javascript
 const { logger, util } = require('tools-kit');
 
-logger.log({ tag: 'OBJECT?' }, util.isObject(new Array()));
-// Console > [20/02/2020 - 00:00:00 | OBJECT?]: false
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'test'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name', 'test'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name', 'not test'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has(['name', 'test'], 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has(['test', 'not test'], 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'ARRAY?' }, util.isArray(new Array()));
+// Console > [20/02/2020 - 00:00:00 | ARRAY?]: true
+
+logger.log({ tag: 'ARRAY?' }, util.isArray(new Object()));
+// Console > [20/02/2020 - 00:00:00 | ARRAY?]: false
+
+logger.log({ tag: 'ARRAY?' }, util.isArray([]));
+// Console > [20/02/2020 - 00:00:00 | ARRAY?]: true
+
+logger.log({ tag: 'ARRAY?' }, util.isArray({}));
+// Console > [20/02/2020 - 00:00:00 | ARRAY?]: false
 
 logger.log({ tag: 'OBJECT?' }, util.isObject(new Object()));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: true
 
-logger.log({ tag: 'OBJECT?' }, util.isObject([]));
+logger.log({ tag: 'OBJECT?' }, util.isObject(new Array()));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: false
 
 logger.log({ tag: 'OBJECT?' }, util.isObject({}));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: true
 
+logger.log({ tag: 'OBJECT?' }, util.isObject([]));
+// Console > [20/02/2020 - 00:00:00 | OBJECT?]: false
+
 logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
-// Console > [20/02/2020 - 00:00:00 | OBJECT?]: dog
+// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: dog
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
-// Console > [20/02/2020 - 00:00:00 | OBJECT?]: 7
+// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: 7
+
+logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Default is true
+// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: 9.051817302079687
 ```
 
 ## Logger Options
@@ -314,41 +351,42 @@ logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
 
 ### options.time
 
-- The `options.time` can be either of this two:
-- `Boolean` (true/false) - If to include the current time with the stock format when logging
-- `String` ([moment][moment] time format) - A custom moment time format to use when logging
+#### The `options.time` can be either of this two
+
+- `Boolean` (true/false) - If to include the current time and date with the stock format when logging (Stock used [**moment**][moment] format: DD/M/YYYY - H:mm:ss)
+- `String` - A custom [**moment**][moment] time format to use when logging
 
 ### options.tag
 
-- The `options.tag` can be either of this two:
+#### The `options.tag` can be either of this two
+
 - `Boolean` (true/false) - If to include the a tag when logging
-- `String` - A custom string value to use as a tag when logging
+- `String` - A custom string value to use as a tag when logging (Case sensitive)
 
-## License
-
-[**MIT**][license]
-
-## Changelog
-
-See the [**Changes Log**][changelog] for more information about each update.
-
-## Documentations
+# Documentations
 
 Read the [**Documentations**][documentations] for more information about each method.
 
-## Related Modules
+# Maintainers
 
-- [node-fetch][node-fetch] — A light-weight module that brings window.fetch to Node.js.
-- [moment][moment] — A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.
-- [figlet][figlet] — Creates ASCII Art from text. A full implementation of the FIGfont spec.
+- [**BlackB1RD**][blackb1rd]
+- [**JamesParkDev**][james]
 
-## Maintainers
+# Changelog
 
-- [BlackB1RD][blackb1rd]
-- [JamesParkDev][james]
+See the [**Changes Log**][changelog] for more information about each update.
+
+# License
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FBlackB1RD-Development%2Ftools-kit?ref=badge_large)
+
+# Related Modules
+
+- [**node-fetch**][node-fetch] — A light-weight module that brings window.fetch to Node.js.
+- [**moment**][moment] — A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.
+- [**figlet**][figlet] — Creates ASCII Art from text. A full implementation of the FIGfont spec.
 
 [hastebin]:https://hastebin.com/about.md
-[license]:https://github.com/BlackB1RD-Development/tools-kit/blob/master/LICENSE.md
 [changelog]:https://github.com/BlackB1RD-Development/tools-kit/blob/master/CHANGELOG.md
 [documentations]:https://tools-kit.js.org/api
 [node-fetch]: https://www.npmjs.com/package/node-fetch
