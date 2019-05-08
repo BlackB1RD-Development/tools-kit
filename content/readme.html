@@ -44,25 +44,36 @@
     <img src="https://nodei.co/npm/tools-kit.png" style="max-width: 100%;">
   </a>
   <br>
-  <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a> (<b><a href="https://github.com/RealBlackB1RD">@RealBlackB1RD</a></b>). All rights reserved ©</sub>
+  <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a>. All rights reserved ©</sub>
 </p>
 
 <h1 id="features">Features</h1>
 <hr />
 <ul>
-<li>A <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a> Client that can publish your beautiful code online or fetching an existing one.</li>
-<li>A Logger Manager that can style your logs with all the known Node.js console methods.</li>
-<li>A Color Manager that can style your text in all the possible ways.</li>
-<li>Easy to use and useful utilities that everyone use 😉</li>
+<li>A <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a> Client that can post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a>.</li>
+<li>A Logger Manager that can log a styled and colored text into the console.</li>
+<li>A Styles Manager that can transfer your simple text into a styled and modern one.</li>
+<li>A collection of easy to use and useful functions.</li>
 <li>Extremely configurable and debuggable.</li>
 <li>Well documented.</li>
 </ul>
-<h1 id="installation">Installation</h1>
+<h1 id="install">Install</h1>
 <hr />
-<pre><code class="console">npm install tools-kit</code></pre>
-<h1 id="class-examples">Class Examples</h1>
+<h2 id="npm-through-github">NPM Through GitHub</h2>
 <hr />
-<p>Click to jump between class examples:</p>
+<pre><code class="console">npm install BlackB1RD-Development/tools-kit --save</code></pre>
+<h2 id="npm">NPM</h2>
+<hr />
+<pre><code class="console">npm install tools-kit --save</code></pre>
+<h2 id="yarn">Yarn</h2>
+<hr />
+<pre><code class="console">yarn add tools-kit</code></pre>
+<h1 id="documentations">Documentations</h1>
+<hr />
+<p>Read the <a href="https://tools-kit.js.org/api"><strong>Documentations</strong></a> for more information about each method.</p>
+<h1 id="table-of-content">Table of Content</h1>
+<hr />
+<h4 id="click-to-jump-between-class-examples">Click to jump between class examples</h4>
 <table>
 <thead>
 <tr>
@@ -71,49 +82,49 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a href="#tools-kit-hastebin-client"><strong>Hastebin Client</strong></a></td>
+<td><a href="#hastebin-client"><strong>Hastebin Client</strong></a></td>
 <td>Post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a></td>
 </tr>
 <tr>
-<td><a href="#tools-kit-logger-manager"><strong>Logger</strong></a></td>
+<td><a href="#logger-manager"><strong>Logger</strong></a></td>
 <td>Log a styled and colored text into the console</td>
 </tr>
 <tr>
-<td><a href="#tools-kit-color-manager"><strong>Color</strong></a></td>
+<td><a href="#color-manager"><strong>Color</strong></a></td>
 <td>Transfer your simple text into a styled and modern one (Console support only)</td>
 </tr>
 <tr>
-<td><a href="#tools-kit-utilities"><strong>Util</strong></a></td>
-<td>A collection of functions that everyone use in one simple line</td>
+<td><a href="#utilities"><strong>Util</strong></a></td>
+<td>A collection of easy to use and useful functions</td>
 </tr>
 </tbody></table>
 <h2 id="hastebin-client">Hastebin Client</h2>
 <hr />
-<p>With Tools-Kit <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a> Client you can post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a>.</p>
+<p>With the <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a> Client you can post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a>.</p>
 <pre><code class="javascript">const { logger, hastebin } = require('tools-kit');
 
 hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
   .then(async postRes =&gt; {
-    logger.log({ background: 'black', color: 'green', type: 'log', tag: 'POST RES' }, postRes);
+    logger.success({ tag: 'POST RES' }, postRes);
     // Console &gt; [20/02/2020 - 00:00:00 | POST RES]: HastebinObject{}
 
     await hastebin.get(postRes.link)
       .then(getRes =&gt; {
-        logger.log({ background: 'black', color: 'green', type: 'log', tag: 'GET RES' }, getRes);
+        logger.success({ tag: 'GET RES' }, getRes);
         // Console &gt; [20/02/2020 - 00:00:00 | GET RES]: HastebinObject{}
       })
       .catch(getErr =&gt; {
-        logger.log({ background: 'black', color: 'red', type: 'error', tag: 'GET ERROR' }, getErr);
-        // Console &gt; [20/02/2020 - 00:00:00 | GET ERROR]: Get Error
+        logger.error({ tag: 'GET ERROR' }, getErr);
+        // Console &gt; [20/02/2020 - 00:00:00 | GET ERROR]: Error: Get Error
       });
   })
   .catch(postErr =&gt; {
-    logger.log({ background: 'black', color: 'red', type: 'error', tag: 'POST ERROR' }, postErr);
-    // Console &gt; [20/02/2020 - 00:00:00 | POST ERROR]: Post Error
+    logger.error({ tag: 'POST ERROR' }, postErr);
+    // Console &gt; [20/02/2020 - 00:00:00 | POST ERROR]: Error: Post Error
   });</code></pre>
 <h2 id="logger-manager">Logger Manager</h2>
 <hr />
-<p>With Tools-Kit Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.</p>
+<p>With the Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.</p>
 <pre><code class="javascript">const { logger } = require('tools-kit');
 
 logger.log('content');
@@ -143,35 +154,60 @@ logger.info('Information log');
 logger.warn('Warning log');
 // Console &gt; [20/02/2020 - 00:00:00 | WARN]: Warning log
 
-logger.figlet({}, 'FIGLET', 'LOG');
+logger.figlet('FIGLET', 'LOG');
 /*
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:   _     ___   ____
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |   / _ \ / ___|
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |  | | | | |  _
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |__| |_| | |_| |
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |_____\___/ \____|
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:   _____ ___ ____ _     _____ _____
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  ___|_ _/ ___| |   | ____|_   _|
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |_   | | |  _| |   |  _|   | |
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|
-Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:   _     ___   ____
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |   / _ \ / ___|
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |  | | | | |  _
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |__| |_| | |_| |
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |_____\___/ \____|
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:   _____ ___ ____ _     _____ _____
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  ___|_ _/ ___| |   | ____|_   _|
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |_   | | |  _| |   |  _|   | |
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:
 */</code></pre>
-<p>Settings custom styling options:</p>
+<p>Using custom options:</p>
 <pre><code class="javascript">const { logger } = require('tools-kit');
 
-const settings = { // Support custom logging options
-  background: 'black',
-  color: 'bMagenta',
-  style: 'bold',
-  type: 'info',
-  time: true,
-  tag: 'Black &amp; Blue'
-};
+// Support custom logging options and rewriting of existing methods settings
+const scsSettings = {
+    time: 'H:mm',
+    tag: 'PUBLISH SUCCESS',
+    format: (options) =&gt; {
+      return `[${options.tag}]: Published ${options.content} successfully at ${options.time}`;
+    }
+  }, errSettings = {
+    time: 'H:mm',
+    tag: 'PUBLISH ERROR',
+    format: (options) =&gt; {
+      return `[${options.tag}]: Couldn't publish ${options.content} at ${options.time}`;
+    }
+  }, settings = {
+    tag: 'PUBLISH API',
+    format: (options) =&gt; {
+      return `[${options.tag}]: Publish API ${options.content} | Last Check: ${options.time}`;
+    }
+  };
 
-logger.log(settings, 'content');
-// Console &gt; [20/02/2020 - 00:00:00 | Black &amp; Blue]: content
+const image = {
+    name: 'logo.png',
+    size: '5MB'
+  }, api = {
+    message: 'Internal Server Error',
+    code: '500'
+  };
+
+logger.success(scsSettings, 'image named "%s" with a total size of %s', image.name, image.size);
+// Console &gt; [PUBLISH SUCCESS]: Published image named "logo.png" with a total size of 5MB successfully at 20:00
+
+logger.error(errSettings, 'image named "%s" with a total size of %s', image.name, image.size);
+// Console &gt; [PUBLISH ERROR]: Couldn't publish image named "logo.png" with a total size of 5MB at 20:00
+
+logger.info(settings, 'responed with %s status code and "%s" message', api.code, api.message);
+// Console &gt; [PUBLISH API]: Publish API responed with 500 status code and "Internal Server Error" message | Last Check: 20/2/2020 - 20:00:00
 
 logger.log({ time: false }, 'log', 'no time');
 // Console &gt; [LOG]: log no time
@@ -198,35 +234,81 @@ logger // Support chain logging
   Console &gt; [20/02/2020 - 00:00:00 | THIRD LOG]: Third content
 */</code></pre>
 <p>See more backgrounds, colors, styles &amp; consoles types by clicking <a href="#logger-options"><strong>here</strong></a></p>
-<h2 id="color-manager">Color Manager</h2>
+<h2 id="styles-manager">Styles Manager</h2>
 <hr />
-<p>With Tools-Kit Color Manager you can transfer your simple text into a styled and modern one.</p>
-<pre><code class="javascript">// Requires - Files
-const { logger, color } = require('tools-kit');
+<p>With the Styles Manager you can transfer your simple text into a styled and modern one.</p>
+<pre><code class="javascript">const { logger, style } = require('tools-kit');
 
-logger.log({ tag: 'STYLE' }, color.style({ background: 'gray' }, 'styled background'), 'normal background');
-// Console &gt; [20/02/2020 - 00:00:00 | STYLE]: styled background normal background
+logger.log({ tag: 'STYLE' },
+  style.bgGreen('testing %s', 'background'),
+  style.red('testing %s', 'color'),
+  style.underline('testing %s', 'style'),
+  style.bgGreen.red.underline('testing %s', 'a style chain')
+);
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE]: testing background testing color testing style testing a style chain
 
-logger.log({ tag: 'STYLE' }, color.style({ color: 'red' }, 'styled color'), 'normal color');
-// Console &gt; [20/02/2020 - 00:00:00 | STYLE]: styled color normal color
+logger.log({ tag: 'STYLE OBJECT' }, style.stylify({ background: 'bgGreen' }, 'styled background'), 'normal background');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled background normal background
 
-logger.log({ tag: 'STYLE' }, color.style({ style: 'bold' }, 'styled style'), 'normal style');
-// Console &gt; [20/02/2020 - 00:00:00 | STYLE]: styled style normal style</code></pre>
+logger.log({ tag: 'STYLE OBJECT' }, style.stylify({ color: 'red' }, 'styled color'), 'normal color');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled color normal color
+
+logger.log({ tag: 'STYLE OBJECT' }, style.stylify({ style: 'underline' }, 'styled style'), 'normal style');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled style normal style
+
+logger.log({ tag: 'STYLE OBJECT' }, style.stylify({ background: 'bgGreen', color: 'red', style: 'underline' }, 'styled text'), 'normal text');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled text normal text
+
+logger.log({ tag: 'STYLE METHOD' }, style.background('bgGreen', 'styled background'), 'normal style');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE METHOD]: styled background normal style
+
+logger.log({ tag: 'STYLE METHOD' }, style.color('red', 'styled color'), 'normal style');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE METHOD]: styled color normal style
+
+logger.log({ tag: 'STYLE METHOD' }, style.style('underline', 'styled style'), 'normal style');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE METHOD]: styled style normal style
+
+logger.log({ tag: 'STYLE METHOD' }, style.bgGreen.red.underline('styled text'), 'normal text');
+// Console &gt; [20/02/2020 - 00:00:00 | STYLE METHOD]: styled text normal text
+
+const colors = [
+  style.rgb([255, 0, 0]),
+  style.hex('#ffff00'),
+  style.hsv([180, 100, 100]),
+  style.hsl([120, 100, 50]),
+  style.hwb([240, 0, 0]),
+  style.lab([35, 80, -104]),
+  style.xyz([59, 28, 97]),
+  style.lch([88, 90, 149]),
+  style.cmyk([100, 50, 0, 0]),
+  style.ansi16(12),
+  style.ansi256(250),
+  style.keyword('DeepSkyBlue')
+];
+
+logger.log({ tag: 'CUSTOM MAP' }, style.map('custom map styled-text', colors), 'normal text');
+// Console &gt; [20/02/2020 - 00:00:00 | CUSTOM MAP]: custom map styled-text normal text</code></pre>
 <p>Using pre-made cool colors maps:</p>
 <pre><code class="javascript">const { logger, color } = require('tools-kit');
 
-logger.log({ tag: 'RAINBOW' }, color.rainbow('rainbow styled-text'), 'normal text');
+logger.log({ tag: 'RAINBOW' }, style.rainbow('rainbow styled-text'), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | RAINBOW]: rainbow styled-text normal text
 
-logger.log({ tag: 'RANDOM' }, color.random('random styled-text'), 'normal text');
+logger.log({ tag: 'RANDOM' }, style.random('random styled-text'), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | RANDOM]: random styled-text normal text
 
-logger.log({ tag: 'ZEBRA' }, color.zebra('zebra styled-text'), 'normal text');
-// Console &gt; [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text zebra styled-text normal text</code></pre>
+logger.log({ tag: 'ZEBRA' }, style.zebra('zebra styled-text'), 'normal text');
+// Console &gt; [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text normal text</code></pre>
 <h2 id="utilities">Utilities</h2>
 <hr />
 <p>With Tools-Kit Utilities you can use the functions that everyone uses in one simple line.</p>
 <pre><code class="javascript">const { logger, util } = require('tools-kit');
+
+logger.log({ tag: 'HAS?' }, util.has({}, 'name'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has([], 'name'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: false
 
 logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name'));
 // Console &gt; [20/02/2020 - 00:00:00 | HAS?]: true
@@ -245,6 +327,15 @@ logger.log({ tag: 'HAS?' }, util.has(['name', 'test'], 'name'));
 
 logger.log({ tag: 'HAS?' }, util.has(['test', 'not test'], 'name'));
 // Console &gt; [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'name'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'test', 'name'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'name', 'test'));
+// Console &gt; [20/02/2020 - 00:00:00 | HAS?]: true
 
 logger.log({ tag: 'ARRAY?' }, util.isArray(new Array()));
 // Console &gt; [20/02/2020 - 00:00:00 | ARRAY?]: true
@@ -271,54 +362,86 @@ logger.log({ tag: 'OBJECT?' }, util.isObject([]));
 // Console &gt; [20/02/2020 - 00:00:00 | OBJECT?]: false
 
 logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
-// Console &gt; [20/02/2020 - 00:00:00 | RANDOM ITEM]: dog
+// Console &gt; [20/02/2020 - 00:00:00 | RANDOM ITEM]: fish
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
-// Console &gt; [20/02/2020 - 00:00:00 | RANDOM ITEM]: 7
+// Console &gt; [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 8
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Default is true
-// Console &gt; [20/02/2020 - 00:00:00 | RANDOM ITEM]: 9.051817302079687</code></pre>
+// Console &gt; [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 9.478004123859458</code></pre>
 <h2 id="logger-options">Logger Options</h2>
 <hr />
 <h3 id="optionsbackground">options.background</h3>
 <ul>
-<li><code>black</code></li>
-<li><code>gray</code></li>
-<li><code>grey</code></li>
-<li><code>lRed</code></li>
-<li><code>lGreen</code></li>
-<li><code>lYellow</code></li>
-<li><code>lBlue</code></li>
-<li><code>lMagenta</code></li>
-<li><code>lCyan</code></li>
-<li><code>lWhite</code></li>
-<li><code>bRed</code></li>
-<li><code>bGreen</code></li>
-<li><code>bYellow</code></li>
-<li><code>bBlue</code></li>
-<li><code>bMagenta</code></li>
-<li><code>bCyan</code></li>
-<li><code>bWhite</code></li>
+<li><code>bgBlack</code></li>
+<li><code>bgGray</code></li>
+<li><code>bgGrey</code></li>
+<li><code>bgRed</code></li>
+<li><code>bgGreen</code></li>
+<li><code>bgYellow</code></li>
+<li><code>bgBlue</code></li>
+<li><code>bgMagenta</code></li>
+<li><code>bgCyan</code></li>
+<li><code>bgWhite</code></li>
+</ul>
+<h4 id="light-backgrounds">Light Backgrounds</h4>
+<ul>
+<li><code>bgLBlack</code></li>
+<li><code>bgLRed</code></li>
+<li><code>bgLGreen</code></li>
+<li><code>bgLYellow</code></li>
+<li><code>bgLBlue</code></li>
+<li><code>bgLMagenta</code></li>
+<li><code>bgLCyan</code></li>
+<li><code>bgLWhite</code></li>
+</ul>
+<h4 id="bright-backgrounds">Bright Backgrounds</h4>
+<ul>
+<li><code>bgBGray</code></li>
+<li><code>bgBGrey</code></li>
+<li><code>bgBRed</code></li>
+<li><code>bgBGreen</code></li>
+<li><code>bgBYellow</code></li>
+<li><code>bgBBlue</code></li>
+<li><code>bgBMagenta</code></li>
+<li><code>bgBCyan</code></li>
+<li><code>bgBWhite</code></li>
 </ul>
 <h3 id="optionscolors">options.colors</h3>
 <ul>
 <li><code>black</code></li>
 <li><code>gray</code></li>
 <li><code>grey</code></li>
-<li><code>lRed</code></li>
-<li><code>lGreen</code></li>
-<li><code>lYellow</code></li>
-<li><code>lBlue</code></li>
-<li><code>lMagenta</code></li>
-<li><code>lCyan</code></li>
-<li><code>lWhite</code></li>
-<li><code>bRed</code></li>
-<li><code>bGreen</code></li>
-<li><code>bYellow</code></li>
-<li><code>bBlue</code></li>
-<li><code>bMagenta</code></li>
-<li><code>bCyan</code></li>
-<li><code>bWhite</code></li>
+<li><code>red</code></li>
+<li><code>green</code></li>
+<li><code>yellow</code></li>
+<li><code>blue</code></li>
+<li><code>magenta</code></li>
+<li><code>cyan</code></li>
+<li><code>white</code></li>
+</ul>
+<h4 id="light-colors">Light Colors</h4>
+<ul>
+<li><code>lblack</code></li>
+<li><code>lred</code></li>
+<li><code>lgreen</code></li>
+<li><code>lyellow</code></li>
+<li><code>lblue</code></li>
+<li><code>lmagenta</code></li>
+<li><code>lcyan</code></li>
+<li><code>lwhite</code></li>
+</ul>
+<h4 id="bright-colors">Bright Colors</h4>
+<ul>
+<li><code>bgray</code></li>
+<li><code>bgrey</code></li>
+<li><code>bred</code></li>
+<li><code>bgreen</code></li>
+<li><code>byellow</code></li>
+<li><code>bblue</code></li>
+<li><code>bmagenta</code></li>
+<li><code>bcyan</code></li>
+<li><code>bwhite</code></li>
 </ul>
 <h3 id="optionsstyle">options.style</h3>
 <ul>
@@ -352,15 +475,17 @@ logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Defaul
 <li><code>Boolean</code> (true/false) - If to include the a tag when logging</li>
 <li><code>String</code> - A custom string value to use as a tag when logging (Case sensitive)</li>
 </ul>
-<h1 id="documentations">Documentations</h1>
-<hr />
-<p>Read the <a href="https://tools-kit.js.org/api"><strong>Documentations</strong></a> for more information about each method.</p>
-<h1 id="maintainers">Maintainers</h1>
+<h1 id="author">Author</h1>
 <hr />
 <ul>
 <li><a href="https://github.com/RealBlackB1RD"><strong>BlackB1RD</strong></a></li>
-<li><a href="https://github.com/JamesParkDev"><strong>JamesParkDev</strong></a></li>
 </ul>
+<h1 id="maintainers">Maintainers</h1>
+<hr />
+<ul>
+<li><a href="https://github.com/BlackB1RD-Development"><strong>BlackB1RD-Development</strong></a></li>
+</ul>
+<p>See also the list of <a href="contributors"><strong>contributors</strong></a> who participated in this project.</p>
 <h1 id="changelog">Changelog</h1>
 <hr />
 <p>See the <a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/CHANGELOG.md"><strong>Changes Log</strong></a> for more information about each update.</p>
@@ -370,6 +495,8 @@ logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Defaul
 <h1 id="related-modules">Related Modules</h1>
 <hr />
 <ul>
+<li><a href="https://www.npmjs.com/package/supports-color"><strong>supports-color</strong></a> — Detect whether a terminal supports color.</li>
+<li><a href="https://www.npmjs.com/package/color-convert"><strong>color-convert</strong></a> — Plain color conversion functions.</li>
 <li><a href="https://www.npmjs.com/package/node-fetch"><strong>node-fetch</strong></a> — A light-weight module that brings window.fetch to Node.js.</li>
 <li><a href="https://www.npmjs.com/package/moment"><strong>moment</strong></a> — A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.</li>
 <li><a href="https://www.npmjs.com/package/figlet"><strong>figlet</strong></a> — Creates ASCII Art from text. A full implementation of the FIGfont spec.</li>
