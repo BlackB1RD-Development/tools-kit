@@ -44,7 +44,7 @@
     <img src="https://nodei.co/npm/tools-kit.png" style="max-width: 100%;">
   </a>
   <br>
-  <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a>. All rights reserved ©</sub>
+  <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a> (Author: <a href="https://github.com/RealBlackB1RD">@RealBlackB1RD</a>). All rights reserved ©</sub>
 </p>
 
 <h1 id="features">Features</h1>
@@ -156,17 +156,11 @@ logger.warn('Warning log');
 
 logger.figlet('FIGLET', 'LOG');
 /*
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:   _     ___   ____
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |   / _ \ / ___|
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |  | | | | |  _
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |__| |_| | |_| |
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |_____\___/ \____|
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:   _____ ___ ____ _     _____ _____
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  ___|_ _/ ___| |   | ____|_   _|
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |_   | | |  _| |   |  _|   | |
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |
-  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:   _____ ___ ____ _     _____ _____   _     ___   ____
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  ___|_ _/ ___| |   | ____|_   _| | |   / _ \ / ___|
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |_   | | |  _| |   |  _|   | |   | |  | | | | |  _
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |   | |__| |_| | |_| |
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|   |_____\___/ \____|
   Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:
 */</code></pre>
 <p>Using custom options:</p>
@@ -190,9 +184,27 @@ const scsSettings = {
     format: (options) =&gt; {
       return `[${options.tag}]: Publish API ${options.content} | Last Check: ${options.time}`;
     }
-  };
-
-const image = {
+  }, figSettings = {
+    figlet: {
+      font: 'Ghost',
+      verticalLayout: 'default',
+      horizontalLayout: 'default'
+    },
+    log: {
+      name: 'figlet',
+      options: {
+        background: 'black',
+        color: 'red',
+        style: 'bold',
+        type: 'log',
+        time: 'MM/DD/YY',
+        tag: true,
+        format: (options) =&gt; {
+          return !options.time &amp;&amp; !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
+        }
+      }
+    }
+  }, image = {
     name: 'logo.png',
     size: '5MB'
   }, api = {
@@ -211,6 +223,19 @@ logger.info(settings, 'responed with %s status code and "%s" message', api.code,
 
 logger.log({ time: false }, 'log', 'no time');
 // Console &gt; [LOG]: log no time
+
+logger.figlet(figSettings, 'Boo');
+/*
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]: .-. .-')
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]: \  ( OO )
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  ;-----.\  .-'),-----.  .-'),-----.
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | .-.  | ( OO'  .-.  '( OO'  .-.  '
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | '-' /_)/   |  | |  |/   |  | |  |
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | .-. `. \_) |  |\|  |\_) |  |\|  |
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | |  \  |  \ |  | |  |  \ |  | |  |
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  | '--'  /   `'  '-'  '   `'  '-'  '
+  Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  `------'      `-----'      `-----'
+*/
 
 logger.log({ time: 'MM-DD-YY' }, 'log', 'custom time format');
 // Console &gt; [02-20-2020 | LOG]: log custom time format
@@ -240,64 +265,64 @@ logger // Support chain logging
 <pre><code class="javascript">const { logger, style } = require('tools-kit');
 
 logger.log({ tag: 'STYLE' },
-  style.bgGreen('testing %s', 'background'),
-  style.red('testing %s', 'color'),
-  style.underline('testing %s', 'style'),
-  style.bgGreen.red.underline('testing %s', 'a style chain')
+  styles.bgGreen('testing %s', 'background'),
+  styles.red('testing %s', 'color'),
+  styles.underline('testing %s', 'style'),
+  styles.bgGreen.red.underline('testing %s', 'a style chain')
 );
 // Console &gt; [20/02/2020 - 00:00:00 | STYLE]: testing background testing color testing style testing a style chain
 
-logger.log({ tag: 'STYLE OBJECT' }, style.stylify({ background: 'bgGreen' }, 'styled background'), 'normal background');
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ background: 'bgGreen' }, 'styled background'), 'normal background');
 // Console &gt; [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled background normal background
 
-logger.log({ tag: 'STYLE OBJECT' }, style.stylify({ color: 'red' }, 'styled color'), 'normal color');
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ color: 'red' }, 'styled color'), 'normal color');
 // Console &gt; [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled color normal color
 
-logger.log({ tag: 'STYLE OBJECT' }, style.stylify({ style: 'underline' }, 'styled style'), 'normal style');
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ style: 'underline' }, 'styled style'), 'normal style');
 // Console &gt; [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled style normal style
 
-logger.log({ tag: 'STYLE OBJECT' }, style.stylify({ background: 'bgGreen', color: 'red', style: 'underline' }, 'styled text'), 'normal text');
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ background: 'bgGreen', color: 'red', style: 'underline' }, 'styled text'), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled text normal text
 
-logger.log({ tag: 'STYLE METHOD' }, style.background('bgGreen', 'styled background'), 'normal style');
+logger.log({ tag: 'STYLE METHOD' }, styles.background('bgGreen', 'styled background'), 'normal style');
 // Console &gt; [20/02/2020 - 00:00:00 | STYLE METHOD]: styled background normal style
 
-logger.log({ tag: 'STYLE METHOD' }, style.color('red', 'styled color'), 'normal style');
+logger.log({ tag: 'STYLE METHOD' }, styles.color('red', 'styled color'), 'normal style');
 // Console &gt; [20/02/2020 - 00:00:00 | STYLE METHOD]: styled color normal style
 
-logger.log({ tag: 'STYLE METHOD' }, style.style('underline', 'styled style'), 'normal style');
+logger.log({ tag: 'STYLE METHOD' }, styles.style('underline', 'styled style'), 'normal style');
 // Console &gt; [20/02/2020 - 00:00:00 | STYLE METHOD]: styled style normal style
 
-logger.log({ tag: 'STYLE METHOD' }, style.bgGreen.red.underline('styled text'), 'normal text');
+logger.log({ tag: 'STYLE METHOD' }, styles.bgGreen.red.underline('styled text'), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | STYLE METHOD]: styled text normal text
 
 const colors = [
-  style.rgb([255, 0, 0]),
-  style.hex('#ffff00'),
-  style.hsv([180, 100, 100]),
-  style.hsl([120, 100, 50]),
-  style.hwb([240, 0, 0]),
-  style.lab([35, 80, -104]),
-  style.xyz([59, 28, 97]),
-  style.lch([88, 90, 149]),
-  style.cmyk([100, 50, 0, 0]),
-  style.ansi16(12),
-  style.ansi256(250),
-  style.keyword('DeepSkyBlue')
+  styles.rgb([255, 0, 0]),
+  styles.hex('#ffff00'),
+  styles.hsv([180, 100, 100]),
+  styles.hsl([120, 100, 50]),
+  styles.hwb([240, 0, 0]),
+  styles.lab([35, 80, -104]),
+  styles.xyz([59, 28, 97]),
+  styles.lch([88, 90, 149]),
+  styles.cmyk([100, 50, 0, 0]),
+  styles.ansi16(12),
+  styles.ansi256(250),
+  styles.keyword('DeepSkyBlue')
 ];
 
-logger.log({ tag: 'CUSTOM MAP' }, style.map('custom map styled-text', colors), 'normal text');
+logger.log({ tag: 'CUSTOM MAP' }, styles.map('custom map styled-text', colors), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | CUSTOM MAP]: custom map styled-text normal text</code></pre>
 <p>Using pre-made cool colors maps:</p>
 <pre><code class="javascript">const { logger, color } = require('tools-kit');
 
-logger.log({ tag: 'RAINBOW' }, style.rainbow('rainbow styled-text'), 'normal text');
+logger.log({ tag: 'RAINBOW' }, styles.rainbow('rainbow styled-text'), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | RAINBOW]: rainbow styled-text normal text
 
-logger.log({ tag: 'RANDOM' }, style.random('random styled-text'), 'normal text');
+logger.log({ tag: 'RANDOM' }, styles.random('random styled-text'), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | RANDOM]: random styled-text normal text
 
-logger.log({ tag: 'ZEBRA' }, style.zebra('zebra styled-text'), 'normal text');
+logger.log({ tag: 'ZEBRA' }, styles.zebra('zebra styled-text'), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text normal text</code></pre>
 <h2 id="utilities">Utilities</h2>
 <hr />
