@@ -64,10 +64,10 @@ logger.log({ tag: 'OBJECT?' }, util.isObject([]));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: false
 
 logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
-// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: dog
+// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: fish
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
-// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: 7
+// Console > [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 8
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Default is true
-// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: 9.051817302079687
+// Console > [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 9.478004123859458

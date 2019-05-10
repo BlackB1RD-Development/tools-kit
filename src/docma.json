@@ -9,7 +9,7 @@
 	"template": {
 		"options": {
 			"title": {
-				"label": "",
+				"label": "Tools-Kit",
 				"href": "/"
 			},
 			"logo": {
@@ -112,7 +112,7 @@
 		"tasks": true,
 		"emoji": true
 	},
-	"src": ["./lib/Clients/Hastebin.js", "./lib/Managers/Logger.js", "./lib/Managers/Color.js", "./lib/Utilities/Util.js", "./index.js", "./*.md"],
+	"src": ["./lib/Clients/Hastebin.js", "./lib/Managers/Logger.js", "./lib/Managers/Styles.js", "./lib/Utilities/Util.js", "./index.js", "./*.md"],
 	"dest": "./docs/",
 	"clean": false
 }

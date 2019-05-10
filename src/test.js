@@ -4,13 +4,7 @@
 // License: MIT
 
 // Requires - Files
-const tools = require('..');
-
-// Assignments
-const util = tools.util;
-const color = tools.color;
-const logger = tools.logger;
-const hastebin = tools.hastebin;
+const { util, styles, logger, hastebin } = require('..');
 
 /* Util Utilities */
 
@@ -72,33 +66,74 @@ logger.log({ tag: 'OBJECT?' }, util.isObject([]));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: false
 
 logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
-// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: dog
+// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: fish
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
-// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: 7
+// Console > [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 8
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Default is true
-// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: 9.051817302079687
+// Console > [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 9.478004123859458
 
-/* Color Manager */
+/* Style Manager */
 
-logger.log({ tag: 'STYLE' }, color.style({ background: 'gray' }, 'styled background'), 'normal background');
-// Console > [20/02/2020 - 00:00:00 | STYLE]: styled background normal background
+logger.log({ tag: 'STYLE' },
+  styles.bgGreen('testing %s', 'background'),
+  styles.red('testing %s', 'color'),
+  styles.underline('testing %s', 'style'),
+  styles.bgGreen.red.underline('testing %s', 'a style chain')
+);
+// Console > [20/02/2020 - 00:00:00 | STYLE]: testing background testing color testing style testing a style chain
 
-logger.log({ tag: 'STYLE' }, color.style({ color: 'red' }, 'styled color'), 'normal color');
-// Console > [20/02/2020 - 00:00:00 | STYLE]: styled color normal color
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ background: 'bgGreen' }, 'styled background'), 'normal background');
+// Console > [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled background normal background
 
-logger.log({ tag: 'STYLE' }, color.style({ style: 'bold' }, 'styled style'), 'normal style');
-// Console > [20/02/2020 - 00:00:00 | STYLE]: styled style normal style
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ color: 'red' }, 'styled color'), 'normal color');
+// Console > [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled color normal color
 
-logger.log({ tag: 'RAINBOW' }, color.rainbow('rainbow styled-text'), 'normal text');
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ style: 'underline' }, 'styled style'), 'normal style');
+// Console > [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled style normal style
+
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ background: 'bgGreen', color: 'red', style: 'underline' }, 'styled text'), 'normal text');
+// Console > [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled text normal text
+
+logger.log({ tag: 'STYLE METHOD' }, styles.background('bgGreen', 'styled background'), 'normal style');
+// Console > [20/02/2020 - 00:00:00 | STYLE METHOD]: styled background normal style
+
+logger.log({ tag: 'STYLE METHOD' }, styles.color('red', 'styled color'), 'normal style');
+// Console > [20/02/2020 - 00:00:00 | STYLE METHOD]: styled color normal style
+
+logger.log({ tag: 'STYLE METHOD' }, styles.style('underline', 'styled style'), 'normal style');
+// Console > [20/02/2020 - 00:00:00 | STYLE METHOD]: styled style normal style
+
+logger.log({ tag: 'STYLE METHOD' }, styles.bgGreen.red.underline('styled text'), 'normal text');
+// Console > [20/02/2020 - 00:00:00 | STYLE METHOD]: styled text normal text
+
+const colors = [
+  styles.rgb([255, 0, 0]),
+  styles.hex('#ffff00'),
+  styles.hsv([180, 100, 100]),
+  styles.hsl([120, 100, 50]),
+  styles.hwb([240, 0, 0]),
+  styles.lab([35, 80, -104]),
+  styles.xyz([59, 28, 97]),
+  styles.lch([88, 90, 149]),
+  styles.cmyk([100, 50, 0, 0]),
+  styles.ansi16(12),
+  styles.ansi256(250),
+  styles.keyword('DeepSkyBlue')
+];
+
+logger.log({ tag: 'CUSTOM MAP' }, styles.map('custom map styled-text', colors), 'normal text');
+// Console > [20/02/2020 - 00:00:00 | CUSTOM MAP]: custom map styled-text normal text
+
+logger.log({ tag: 'RAINBOW' }, styles.rainbow('rainbow styled-text'), 'normal text');
 // Console > [20/02/2020 - 00:00:00 | RAINBOW]: rainbow styled-text normal text
 
-logger.log({ tag: 'RANDOM' }, color.random('random styled-text'), 'normal text');
+logger.log({ tag: 'RANDOM' }, styles.random('random styled-text'), 'normal text');
 // Console > [20/02/2020 - 00:00:00 | RANDOM]: random styled-text normal text
 
-logger.log({ tag: 'ZEBRA' }, color.zebra('zebra styled-text'), 'normal text');
-// Console > [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text zebra styled-text normal text
+logger.log({ tag: 'ZEBRA' }, styles.zebra('zebra styled-text'), 'normal text');
+// Console > [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text normal text
 
 /* Logger Manager */
 
@@ -129,36 +164,86 @@ logger.info('Information log');
 logger.warn('Warning log');
 // Console > [20/02/2020 - 00:00:00 | WARN]: Warning log
 
-logger.figlet({}, 'FIGLET', 'LOG');
+logger.figlet('FIGLET', 'LOG');
 /*
-Console > [20/02/2020 - 00:00:00 | FIGLET]:   _     ___   ____
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |   / _ \ / ___|
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |  | | | | |  _
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |__| |_| | |_| |
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  |_____\___/ \____|
-Console > [20/02/2020 - 00:00:00 | FIGLET]:
-Console > [20/02/2020 - 00:00:00 | FIGLET]:   _____ ___ ____ _     _____ _____
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  |  ___|_ _/ ___| |   | ____|_   _|
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |_   | | |  _| |   |  _|   | |
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|
-Console > [20/02/2020 - 00:00:00 | FIGLET]:
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:   _____ ___ ____ _     _____ _____   _     ___   ____
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  |  ___|_ _/ ___| |   | ____|_   _| | |   / _ \ / ___|
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |_   | | |  _| |   |  _|   | |   | |  | | | | |  _
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |   | |__| |_| | |_| |
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|   |_____\___/ \____|
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:
 */
 
-const settings = { // Support custom logging options
-  background: 'black',
-  color: 'bMagenta',
-  style: 'bold',
-  type: 'info',
-  time: true,
-  tag: 'Black & Blue'
-};
+// Support custom logging options and rewriting of existing methods settings
+const scsSettings = {
+    time: 'H:mm',
+    tag: 'PUBLISH SUCCESS',
+    format: (options) => {
+      return `[${options.tag}]: Published ${options.content} successfully at ${options.time}`;
+    }
+  }, errSettings = {
+    time: 'H:mm',
+    tag: 'PUBLISH ERROR',
+    format: (options) => {
+      return `[${options.tag}]: Couldn't publish ${options.content} at ${options.time}`;
+    }
+  }, settings = {
+    tag: 'PUBLISH API',
+    format: (options) => {
+      return `[${options.tag}]: Publish API ${options.content} | Last Check: ${options.time}`;
+    }
+  }, figSettings = {
+    figlet: {
+      font: 'Ghost',
+      verticalLayout: 'default',
+      horizontalLayout: 'default'
+    },
+    log: {
+      name: 'figlet',
+      options: {
+        background: 'black',
+        color: 'red',
+        style: 'bold',
+        type: 'log',
+        time: 'MM/DD/YY',
+        tag: true,
+        format: (options) => {
+          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
+        }
+      }
+    }
+  }, image = {
+    name: 'logo.png',
+    size: '5MB'
+  }, api = {
+    message: 'Internal Server Error',
+    code: '500'
+  };
 
-logger.log(settings, 'content');
-// Console > [20/02/2020 - 00:00:00 | Black & Blue]: content
+logger.success(scsSettings, 'image named "%s" with a total size of %s', image.name, image.size);
+// Console > [PUBLISH SUCCESS]: Published image named "logo.png" with a total size of 5MB successfully at 20:00
+
+logger.error(errSettings, 'image named "%s" with a total size of %s', image.name, image.size);
+// Console > [PUBLISH ERROR]: Couldn't publish image named "logo.png" with a total size of 5MB at 20:00
+
+logger.info(settings, 'responed with %s status code and "%s" message', api.code, api.message);
+// Console > [PUBLISH API]: Publish API responed with 500 status code and "Internal Server Error" message | Last Check: 20/2/2020 - 20:00:00
 
 logger.log({ time: false }, 'log', 'no time');
 // Console > [LOG]: log no time
+
+logger.figlet(figSettings, 'Boo');
+/*
+  Console > [20/02/2020 - 00:00:00 | FIGLET]: .-. .-')
+  Console > [20/02/2020 - 00:00:00 | FIGLET]: \  ( OO )
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  ;-----.\  .-'),-----.  .-'),-----.
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | .-.  | ( OO'  .-.  '( OO'  .-.  '
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | '-' /_)/   |  | |  |/   |  | |  |
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | .-. `. \_) |  |\|  |\_) |  |\|  |
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |  \  |  \ |  | |  |  \ |  | |  |
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | '--'  /   `'  '-'  '   `'  '-'  '
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  `------'      `-----'      `-----'
+*/
 
 logger.log({ time: 'MM-DD-YY' }, 'log', 'custom time format');
 // Console > [02-20-2020 | LOG]: log custom time format
@@ -186,20 +271,20 @@ logger // Support chain logging
 
 hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
   .then(async postRes => {
-    logger.log({ background: 'black', color: 'green', type: 'log', tag: 'POST RES' }, postRes);
+    logger.success({ tag: 'POST RES' }, postRes);
     // Console > [20/02/2020 - 00:00:00 | POST RES]: HastebinObject{}
 
     await hastebin.get(postRes.link)
       .then(getRes => {
-        logger.log({ background: 'black', color: 'green', type: 'log', tag: 'GET RES' }, getRes);
+        logger.success({ tag: 'GET RES' }, getRes);
         // Console > [20/02/2020 - 00:00:00 | GET RES]: HastebinObject{}
       })
       .catch(getErr => {
-        logger.log({ background: 'black', color: 'red', type: 'error', tag: 'GET ERROR' }, getErr);
-        // Console > [20/02/2020 - 00:00:00 | GET ERROR]: Get Error
+        logger.error({ tag: 'GET ERROR' }, getErr);
+        // Console > [20/02/2020 - 00:00:00 | GET ERROR]: Error: Get Error
       });
   })
   .catch(postErr => {
-    logger.log({ background: 'black', color: 'red', type: 'error', tag: 'POST ERROR' }, postErr);
-    // Console > [20/02/2020 - 00:00:00 | POST ERROR]: Post Error
+    logger.error({ tag: 'POST ERROR' }, postErr);
+    // Console > [20/02/2020 - 00:00:00 | POST ERROR]: Error: Post Error
   });

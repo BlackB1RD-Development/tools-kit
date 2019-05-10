@@ -1,6 +1,12 @@
 language: node_js
 node_js:
-  - 7.6
   - 8
   - 10
-after_success: nyc report --reporter=text-lcov | node_modules/.bin/coveralls
+  - 12
+before_script:
+  - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | sudo bash"
+script:
+  - npm test
+  - fossa init
+  - fossa analyze
+after_success: fossa test && nyc report --reporter=text-lcov | node_modules/.bin/coveralls

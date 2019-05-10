@@ -17,17 +17,8 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# nyc test coverage
-.nyc_output
-
-# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
 # Bower dependency directory (https://bower.io/)
 bower_components
-
-# node-waf configuration
-.lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
@@ -38,6 +29,9 @@ jspm_packages/
 
 # TypeScript v1 declaration files
 typings/
+
+# Ignoring the docs folder
+docs/
 
 # Optional npm cache directory
 .npm
@@ -66,6 +60,15 @@ typings/
 # nuxt.js build output
 .nuxt
 
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# node-waf configuration
+.lock-wscript
+
 # vuepress build output
 .vuepress/dist
 
@@ -75,5 +78,8 @@ typings/
 # FuseBox cache
 .fusebox/
 
-# Ignoring the docs folder
-docs/
+# Ignoring GitHub folder
+.github/ISSUE_TEMPLATE
+
+# Ignoring vscode
+.vscode/

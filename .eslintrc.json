@@ -1,6 +1,5 @@
 {
   "env": {
-    "commonjs": true,
     "node": true,
     "es6": true
   },
@@ -17,6 +16,7 @@
     "object-curly-spacing": ["error", "always"],
     "no-console": "off",
     "camelcase": ["error", {"properties": "never"}],
+    "no-var": "error",
     "indent": ["error", 2],
     "quotes": ["error", "single"],
     "semi": ["error", "always"]

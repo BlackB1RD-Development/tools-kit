@@ -7,7 +7,7 @@
 const packageJSON = require('./package.json');
 const Hastebin = require('./lib/Clients/Hastebin.js');
 const Logger = require('./lib/Managers/Logger.js');
-const Color = require('./lib/Managers/Color.js');
+const Styles = require('./lib/Managers/Styles.js');
 const Util = require('./lib/Utilities/Util.js');
 
 /**
@@ -37,20 +37,23 @@ class Kit {
   }
 }
 
-// Assignments
-Kit.version = Kit.pVersion;
-Kit.name = Kit.pName;
-
-Kit.Hastebin = Hastebin;
-Kit.hastebin = Hastebin;
-
-Kit.Logger = Logger;
-Kit.logger = Logger;
-
-Kit.Color = Color;
-Kit.color = Color;
-
-Kit.Util = Util;
-Kit.util = Util;
-
-module.exports = Kit;
+module.exports = {
+  /**
+   * The package version
+   * @returns {String} The package version
+   */
+  name: Kit.pName,
+  /**
+   * The package name
+   * @returns {String} The package name
+   */
+  version: Kit.pVersion,
+  Hastebin,
+  hastebin: Hastebin,
+  Logger,
+  logger: Logger,
+  Styles,
+  styles: Styles,
+  Util,
+  util: Util
+};

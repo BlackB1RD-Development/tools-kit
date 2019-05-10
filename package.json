@@ -1,6 +1,6 @@
 {
   "name": "tools-kit",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "An easy to use, powerful and multi-functionality tools-kit library for NodeJS written entirely in JavaScript.",
   "keywords": [
     "console",
@@ -37,11 +37,12 @@
     "kit tools"
   ],
   "homepage": "https://tools-kit.js.org/",
+  "license": "MIT",
+  "readme": "README.md",
   "bugs": {
     "email": "blackbird.d3v@gmail.com",
     "url": "https://github.com/BlackB1RD-Development/tools-kit/issues"
   },
-  "license": "MIT",
   "author": {
     "name": "BlackB1RD",
     "email": "blackbird.d3v@gmail.com",
@@ -49,9 +50,16 @@
   },
   "contributors": [
     {
-      "name": "James",
-      "email": "jamesparkdev@gmail.com",
-      "url": "https://github.com/JamesParkDev"
+      "name": "BlackB1RD-Development",
+      "email": "blackbird.d3v@gmail.com",
+      "url": "https://github.com/BlackB1RD-Development"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "BlackB1RD-Development",
+      "email": "blackbird.d3v@gmail.com",
+      "url": "https://github.com/BlackB1RD-Development"
     }
   ],
   "main": "index.js",
@@ -65,50 +73,39 @@
     "type": "git",
     "url": "https://github.com/BlackB1RD-Development/tools-kit.git"
   },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "supports-color": "^6.1.0",
+    "color-convert": "^2.0.0",
+    "node-fetch": "^2.4.1",
+    "figlet": "^1.2.1",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "coveralls": "latest",
+    "gh-pages": "latest",
+    "docma": "latest",
+    "mocha": "latest",
+    "chai": "latest",
+    "nyc": "latest",
+    "xo": "latest"
+  },
   "scripts": {
     "prebuild": "xo && nyc mocha",
     "build": "docma -c src/docma.json -d docs && gh-pages -d docs",
     "test": "xo && nyc mocha"
   },
-  "dependencies": {
-    "node-fetch": "^2.3.0",
-    "figlet": "^1.2.1",
-    "moment": "^2.24.0"
-  },
-  "devDependencies": {
-    "coveralls": "^3.0.3",
-    "gh-pages": "^2.0.1",
-    "docma": "^3.2.2",
-    "mocha": "^6.1.3",
-    "nyc": "^13.3.0",
-    "xo": "^0.24.0"
-  },
   "nyc": {
     "exclude": [
       "examples",
       "docs",
-      "test"
+      "test",
+      "src"
     ]
   },
   "xo": {
-    "semicolon": true,
-    "extends": "./.eslintrc.json",
-    "space": true
-  },
-  "engines": {
-    "node": ">=7.6.0"
-  },
-  "readme": "README.md",
-  "maintainers": [
-    {
-      "name": "BlackB1RD | RealBlackB1RD",
-      "email": "blackbird.d3v@gmail.com",
-      "url": "https://github.com/RealBlackB1RD"
-    },
-    {
-      "name": "James | JamesParkDev",
-      "email": "jamesparkdev@gmail.com",
-      "url": "https://github.com/JamesParkDev"
-    }
-  ]
+    "extends": "./.eslintrc.json"
+  }
 }

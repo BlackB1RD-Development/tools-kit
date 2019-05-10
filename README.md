@@ -22,7 +22,7 @@
   <a href="https://david-dm.org/BlackB1RD-Development/tools-kit">
     <img src="https://david-dm.org/BlackB1RD-Development/tools-kit.svg?style=flat-square" alt="dependencies" />
   </a>
-  <a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/LICENSE">
+  <a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/LICENSE.md">
     <img src="https://img.shields.io/npm/l/tools-kit.svg?style=flat-square" alt="license" />
   </a>
   <a href="https://coveralls.io/github/BlackB1RD-Development/tools-kit?branch=master">
@@ -42,66 +42,84 @@
     <img src="https://nodei.co/npm/tools-kit.png">
   </a>
   <br />
-  <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a> (<b><a href="https://github.com/RealBlackB1RD">@RealBlackB1RD</a></b>). All rights reserved ©</sub>
+  <sub>© <a href="https://www.npmjs.com/package/tools-kit">Tools-Kit</a> By <a href="https://github.com/BlackB1RD-Development">BlackB1RD-Development</a> (Author: <a href="https://github.com/RealBlackB1RD">@RealBlackB1RD</a>). All rights reserved ©</sub>
 </p>
 
 # Features
 
-- A [**Hastebin**][hastebin] Client that can publish your beautiful code online or fetching an existing one.
-- A Logger Manager that can style your logs with all the known Node.js console methods.
-- A Color Manager that can style your text in all the possible ways.
-- Easy to use and useful utilities that everyone use 😉
+- A [**Hastebin**][hastebin] Client that can post and fetch code easily from [**Hastebin**][hastebin].
+- A Logger Manager that can log a styled and colored text into the console.
+- A Styles Manager that can transfer your simple text into a styled and modern one.
+- A collection of easy to use and useful functions.
 - Extremely configurable and debuggable.
 - Well documented.
 
-# Installation
+# Install
+
+## NPM Through GitHub
 
 ```console
-npm install tools-kit
+npm install BlackB1RD-Development/tools-kit --save
 ```
 
-# Class Examples
+## NPM
 
-Click to jump between class examples:
+```console
+npm install tools-kit --save
+```
 
-|                   Class  Name                   |                                 Class Description                                  |
-|                 ---------------                 |   ------------------------------------------------------------------------------   |
-|[**Hastebin Client**](#tools-kit-hastebin-client)|              Post and fetch code easily from [**Hastebin**][hastebin]              |
-|     [**Logger**](#tools-kit-logger-manager)     |                   Log a styled and colored text into the console                   |
-|      [**Color**](#tools-kit-color-manager)      |    Transfer your simple text into a styled and modern one (Console support only)   |
-|         [**Util**](#tools-kit-utilities)        |           A collection of functions that everyone use in one simple line           |
+## Yarn
+
+```console
+yarn add tools-kit
+```
+
+# Documentations
+
+Read the [**Documentations**][documentations] for more information about each method.
+
+# Table of Content
+
+#### Click to jump between class examples
+
+|              Class  Name              |                                 Class Description                                  |
+|            ---------------            |   ------------------------------------------------------------------------------   |
+|[**Hastebin Client**](#hastebin-client)|              Post and fetch code easily from [**Hastebin**][hastebin]              |
+|     [**Logger**](#logger-manager)     |                   Log a styled and colored text into the console                   |
+|      [**Color**](#color-manager)      |    Transfer your simple text into a styled and modern one (Console support only)   |
+|         [**Util**](#utilities)        |                  A collection of easy to use and useful functions                  |
 
 ## Hastebin Client
 
-With Tools-Kit [**Hastebin**][hastebin] Client you can post and fetch code easily from [**Hastebin**][hastebin].
+With the [**Hastebin**][hastebin] Client you can post and fetch code easily from [**Hastebin**][hastebin].
 
 ```javascript
 const { logger, hastebin } = require('tools-kit');
 
 hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
   .then(async postRes => {
-    logger.log({ background: 'black', color: 'green', type: 'log', tag: 'POST RES' }, postRes);
+    logger.success({ tag: 'POST RES' }, postRes);
     // Console > [20/02/2020 - 00:00:00 | POST RES]: HastebinObject{}
 
     await hastebin.get(postRes.link)
       .then(getRes => {
-        logger.log({ background: 'black', color: 'green', type: 'log', tag: 'GET RES' }, getRes);
+        logger.success({ tag: 'GET RES' }, getRes);
         // Console > [20/02/2020 - 00:00:00 | GET RES]: HastebinObject{}
       })
       .catch(getErr => {
-        logger.log({ background: 'black', color: 'red', type: 'error', tag: 'GET ERROR' }, getErr);
-        // Console > [20/02/2020 - 00:00:00 | GET ERROR]: Get Error
+        logger.error({ tag: 'GET ERROR' }, getErr);
+        // Console > [20/02/2020 - 00:00:00 | GET ERROR]: Error: Get Error
       });
   })
   .catch(postErr => {
-    logger.log({ background: 'black', color: 'red', type: 'error', tag: 'POST ERROR' }, postErr);
-    // Console > [20/02/2020 - 00:00:00 | POST ERROR]: Post Error
+    logger.error({ tag: 'POST ERROR' }, postErr);
+    // Console > [20/02/2020 - 00:00:00 | POST ERROR]: Error: Post Error
   });
 ```
 
 ## Logger Manager
 
-With Tools-Kit Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.
+With the Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.
 
 ```javascript
 const { logger } = require('tools-kit');
@@ -133,42 +151,92 @@ logger.info('Information log');
 logger.warn('Warning log');
 // Console > [20/02/2020 - 00:00:00 | WARN]: Warning log
 
-logger.figlet({}, 'FIGLET', 'LOG');
+logger.figlet('FIGLET', 'LOG');
 /*
-Console > [20/02/2020 - 00:00:00 | FIGLET]:   _     ___   ____
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |   / _ \ / ___|
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |  | | | | |  _
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |__| |_| | |_| |
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  |_____\___/ \____|
-Console > [20/02/2020 - 00:00:00 | FIGLET]:
-Console > [20/02/2020 - 00:00:00 | FIGLET]:   _____ ___ ____ _     _____ _____
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  |  ___|_ _/ ___| |   | ____|_   _|
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |_   | | |  _| |   |  _|   | |
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |
-Console > [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|
-Console > [20/02/2020 - 00:00:00 | FIGLET]:
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:   _____ ___ ____ _     _____ _____   _     ___   ____
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  |  ___|_ _/ ___| |   | ____|_   _| | |   / _ \ / ___|
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |_   | | |  _| |   |  _|   | |   | |  | | | | |  _
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |   | |__| |_| | |_| |
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|   |_____\___/ \____|
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:
 */
 ```
 
-Settings custom styling options:
+Using custom options:
 
 ```javascript
 const { logger } = require('tools-kit');
 
-const settings = { // Support custom logging options
-  background: 'black',
-  color: 'bMagenta',
-  style: 'bold',
-  type: 'info',
-  time: true,
-  tag: 'Black & Blue'
-};
+// Support custom logging options and rewriting of existing methods settings
+const scsSettings = {
+    time: 'H:mm',
+    tag: 'PUBLISH SUCCESS',
+    format: (options) => {
+      return `[${options.tag}]: Published ${options.content} successfully at ${options.time}`;
+    }
+  }, errSettings = {
+    time: 'H:mm',
+    tag: 'PUBLISH ERROR',
+    format: (options) => {
+      return `[${options.tag}]: Couldn't publish ${options.content} at ${options.time}`;
+    }
+  }, settings = {
+    tag: 'PUBLISH API',
+    format: (options) => {
+      return `[${options.tag}]: Publish API ${options.content} | Last Check: ${options.time}`;
+    }
+  }, figSettings = {
+    figlet: {
+      font: 'Ghost',
+      verticalLayout: 'default',
+      horizontalLayout: 'default'
+    },
+    log: {
+      name: 'figlet',
+      options: {
+        background: 'black',
+        color: 'red',
+        style: 'bold',
+        type: 'log',
+        time: 'MM/DD/YY',
+        tag: true,
+        format: (options) => {
+          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
+        }
+      }
+    }
+  }, image = {
+    name: 'logo.png',
+    size: '5MB'
+  }, api = {
+    message: 'Internal Server Error',
+    code: '500'
+  };
 
-logger.log(settings, 'content');
-// Console > [20/02/2020 - 00:00:00 | Black & Blue]: content
+logger.success(scsSettings, 'image named "%s" with a total size of %s', image.name, image.size);
+// Console > [PUBLISH SUCCESS]: Published image named "logo.png" with a total size of 5MB successfully at 20:00
+
+logger.error(errSettings, 'image named "%s" with a total size of %s', image.name, image.size);
+// Console > [PUBLISH ERROR]: Couldn't publish image named "logo.png" with a total size of 5MB at 20:00
+
+logger.info(settings, 'responed with %s status code and "%s" message', api.code, api.message);
+// Console > [PUBLISH API]: Publish API responed with 500 status code and "Internal Server Error" message | Last Check: 20/2/2020 - 20:00:00
 
 logger.log({ time: false }, 'log', 'no time');
 // Console > [LOG]: log no time
+
+logger.figlet(figSettings, 'Boo');
+/*
+  Console > [20/02/2020 - 00:00:00 | FIGLET]: .-. .-')
+  Console > [20/02/2020 - 00:00:00 | FIGLET]: \  ( OO )
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  ;-----.\  .-'),-----.  .-'),-----.
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | .-.  | ( OO'  .-.  '( OO'  .-.  '
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | '-' /_)/   |  | |  |/   |  | |  |
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | .-. `. \_) |  |\|  |\_) |  |\|  |
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | |  \  |  \ |  | |  |  \ |  | |  |
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  | '--'  /   `'  '-'  '   `'  '-'  '
+  Console > [20/02/2020 - 00:00:00 | FIGLET]:  `------'      `-----'      `-----'
+*/
 
 logger.log({ time: 'MM-DD-YY' }, 'log', 'custom time format');
 // Console > [02-20-2020 | LOG]: log custom time format
@@ -195,22 +263,62 @@ logger // Support chain logging
 
 See more backgrounds, colors, styles & consoles types by clicking [**here**](#logger-options)
 
-## Color Manager
+## Styles Manager
 
-With Tools-Kit Color Manager you can transfer your simple text into a styled and modern one.
+With the Styles Manager you can transfer your simple text into a styled and modern one.
 
 ```javascript
-// Requires - Files
-const { logger, color } = require('tools-kit');
+const { logger, style } = require('tools-kit');
 
-logger.log({ tag: 'STYLE' }, color.style({ background: 'gray' }, 'styled background'), 'normal background');
-// Console > [20/02/2020 - 00:00:00 | STYLE]: styled background normal background
+logger.log({ tag: 'STYLE' },
+  styles.bgGreen('testing %s', 'background'),
+  styles.red('testing %s', 'color'),
+  styles.underline('testing %s', 'style'),
+  styles.bgGreen.red.underline('testing %s', 'a style chain')
+);
+// Console > [20/02/2020 - 00:00:00 | STYLE]: testing background testing color testing style testing a style chain
 
-logger.log({ tag: 'STYLE' }, color.style({ color: 'red' }, 'styled color'), 'normal color');
-// Console > [20/02/2020 - 00:00:00 | STYLE]: styled color normal color
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ background: 'bgGreen' }, 'styled background'), 'normal background');
+// Console > [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled background normal background
 
-logger.log({ tag: 'STYLE' }, color.style({ style: 'bold' }, 'styled style'), 'normal style');
-// Console > [20/02/2020 - 00:00:00 | STYLE]: styled style normal style
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ color: 'red' }, 'styled color'), 'normal color');
+// Console > [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled color normal color
+
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ style: 'underline' }, 'styled style'), 'normal style');
+// Console > [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled style normal style
+
+logger.log({ tag: 'STYLE OBJECT' }, styles.stylify({ background: 'bgGreen', color: 'red', style: 'underline' }, 'styled text'), 'normal text');
+// Console > [20/02/2020 - 00:00:00 | STYLE OBJECT]: styled text normal text
+
+logger.log({ tag: 'STYLE METHOD' }, styles.background('bgGreen', 'styled background'), 'normal style');
+// Console > [20/02/2020 - 00:00:00 | STYLE METHOD]: styled background normal style
+
+logger.log({ tag: 'STYLE METHOD' }, styles.color('red', 'styled color'), 'normal style');
+// Console > [20/02/2020 - 00:00:00 | STYLE METHOD]: styled color normal style
+
+logger.log({ tag: 'STYLE METHOD' }, styles.style('underline', 'styled style'), 'normal style');
+// Console > [20/02/2020 - 00:00:00 | STYLE METHOD]: styled style normal style
+
+logger.log({ tag: 'STYLE METHOD' }, styles.bgGreen.red.underline('styled text'), 'normal text');
+// Console > [20/02/2020 - 00:00:00 | STYLE METHOD]: styled text normal text
+
+const colors = [
+  styles.rgb([255, 0, 0]),
+  styles.hex('#ffff00'),
+  styles.hsv([180, 100, 100]),
+  styles.hsl([120, 100, 50]),
+  styles.hwb([240, 0, 0]),
+  styles.lab([35, 80, -104]),
+  styles.xyz([59, 28, 97]),
+  styles.lch([88, 90, 149]),
+  styles.cmyk([100, 50, 0, 0]),
+  styles.ansi16(12),
+  styles.ansi256(250),
+  styles.keyword('DeepSkyBlue')
+];
+
+logger.log({ tag: 'CUSTOM MAP' }, styles.map('custom map styled-text', colors), 'normal text');
+// Console > [20/02/2020 - 00:00:00 | CUSTOM MAP]: custom map styled-text normal text
 ```
 
 Using pre-made cool colors maps:
@@ -218,14 +326,14 @@ Using pre-made cool colors maps:
 ```javascript
 const { logger, color } = require('tools-kit');
 
-logger.log({ tag: 'RAINBOW' }, color.rainbow('rainbow styled-text'), 'normal text');
+logger.log({ tag: 'RAINBOW' }, styles.rainbow('rainbow styled-text'), 'normal text');
 // Console > [20/02/2020 - 00:00:00 | RAINBOW]: rainbow styled-text normal text
 
-logger.log({ tag: 'RANDOM' }, color.random('random styled-text'), 'normal text');
+logger.log({ tag: 'RANDOM' }, styles.random('random styled-text'), 'normal text');
 // Console > [20/02/2020 - 00:00:00 | RANDOM]: random styled-text normal text
 
-logger.log({ tag: 'ZEBRA' }, color.zebra('zebra styled-text'), 'normal text');
-// Console > [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text zebra styled-text normal text
+logger.log({ tag: 'ZEBRA' }, styles.zebra('zebra styled-text'), 'normal text');
+// Console > [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text normal text
 ```
 
 ## Utilities
@@ -234,6 +342,12 @@ With Tools-Kit Utilities you can use the functions that everyone uses in one sim
 
 ```javascript
 const { logger, util } = require('tools-kit');
+
+logger.log({ tag: 'HAS?' }, util.has({}, 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has([], 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
 
 logger.log({ tag: 'HAS?' }, util.has({ name: 'test' }, 'name'));
 // Console > [20/02/2020 - 00:00:00 | HAS?]: true
@@ -252,6 +366,15 @@ logger.log({ tag: 'HAS?' }, util.has(['name', 'test'], 'name'));
 
 logger.log({ tag: 'HAS?' }, util.has(['test', 'not test'], 'name'));
 // Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: true
+
+logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'test', 'name'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: false
+
+logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'name', 'test'));
+// Console > [20/02/2020 - 00:00:00 | HAS?]: true
 
 logger.log({ tag: 'ARRAY?' }, util.isArray(new Array()));
 // Console > [20/02/2020 - 00:00:00 | ARRAY?]: true
@@ -278,56 +401,88 @@ logger.log({ tag: 'OBJECT?' }, util.isObject([]));
 // Console > [20/02/2020 - 00:00:00 | OBJECT?]: false
 
 logger.log({ tag: 'RANDOM ITEM' }, util.randomItem(['cat', 'dog', 'fish']));
-// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: dog
+// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: fish
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
-// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: 7
+// Console > [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 8
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Default is true
-// Console > [20/02/2020 - 00:00:00 | RANDOM ITEM]: 9.051817302079687
+// Console > [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 9.478004123859458
 ```
 
 ## Logger Options
 
 ### options.background
 
-- `black`
-- `gray`
-- `grey`
-- `lRed`
-- `lGreen`
-- `lYellow`
-- `lBlue`
-- `lMagenta`
-- `lCyan`
-- `lWhite`
-- `bRed`
-- `bGreen`
-- `bYellow`
-- `bBlue`
-- `bMagenta`
-- `bCyan`
-- `bWhite`
+- `bgBlack`
+- `bgGray`
+- `bgGrey`
+- `bgRed`
+- `bgGreen`
+- `bgYellow`
+- `bgBlue`
+- `bgMagenta`
+- `bgCyan`
+- `bgWhite`
+
+#### Light Backgrounds
+
+- `bgLBlack`
+- `bgLRed`
+- `bgLGreen`
+- `bgLYellow`
+- `bgLBlue`
+- `bgLMagenta`
+- `bgLCyan`
+- `bgLWhite`
+
+#### Bright Backgrounds
+
+- `bgBGray`
+- `bgBGrey`
+- `bgBRed`
+- `bgBGreen`
+- `bgBYellow`
+- `bgBBlue`
+- `bgBMagenta`
+- `bgBCyan`
+- `bgBWhite`
 
 ### options.colors
 
 - `black`
 - `gray`
 - `grey`
-- `lRed`
-- `lGreen`
-- `lYellow`
-- `lBlue`
-- `lMagenta`
-- `lCyan`
-- `lWhite`
-- `bRed`
-- `bGreen`
-- `bYellow`
-- `bBlue`
-- `bMagenta`
-- `bCyan`
-- `bWhite`
+- `red`
+- `green`
+- `yellow`
+- `blue`
+- `magenta`
+- `cyan`
+- `white`
+
+#### Light Colors
+
+- `lblack`
+- `lred`
+- `lgreen`
+- `lyellow`
+- `lblue`
+- `lmagenta`
+- `lcyan`
+- `lwhite`
+
+#### Bright Colors
+
+- `bgray`
+- `bgrey`
+- `bred`
+- `bgreen`
+- `byellow`
+- `bblue`
+- `bmagenta`
+- `bcyan`
+- `bwhite`
 
 ### options.style
 
@@ -363,14 +518,15 @@ logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Defaul
 - `Boolean` (true/false) - If to include the a tag when logging
 - `String` - A custom string value to use as a tag when logging (Case sensitive)
 
-# Documentations
+# Author
 
-Read the [**Documentations**][documentations] for more information about each method.
+- [**BlackB1RD**][blackb1rd]
 
 # Maintainers
 
-- [**BlackB1RD**][blackb1rd]
-- [**JamesParkDev**][james]
+- [**BlackB1RD-Development**][blackb1rd-development]
+
+See also the list of [**contributors**](contributors) who participated in this project.
 
 # Changelog
 
@@ -382,15 +538,20 @@ See the [**Changes Log**][changelog] for more information about each update.
 
 # Related Modules
 
+- [**supports-color**][supports-color] — Detect whether a terminal supports color.
+- [**color-convert**][color-convert] — Plain color conversion functions.
 - [**node-fetch**][node-fetch] — A light-weight module that brings window.fetch to Node.js.
 - [**moment**][moment] — A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.
 - [**figlet**][figlet] — Creates ASCII Art from text. A full implementation of the FIGfont spec.
 
 [hastebin]:https://hastebin.com/about.md
 [changelog]:https://github.com/BlackB1RD-Development/tools-kit/blob/master/CHANGELOG.md
+[contributors]:https://github.com/BlackB1RD-Development/tools-kit/contributors
 [documentations]:https://tools-kit.js.org/api
+[supports-color]: https://www.npmjs.com/package/supports-color
+[color-convert]: https://www.npmjs.com/package/color-convert
 [node-fetch]: https://www.npmjs.com/package/node-fetch
 [moment]: https://www.npmjs.com/package/moment
 [figlet]: https://www.npmjs.com/package/figlet
 [blackb1rd]: https://github.com/RealBlackB1RD
-[james]: https://github.com/JamesParkDev
+[blackb1rd-development]: https://github.com/BlackB1RD-Development
