@@ -86,7 +86,7 @@ Read the [**Documentations**][documentations] for more information about each me
 |            ---------------            |   ------------------------------------------------------------------------------   |
 |[**Hastebin Client**](#hastebin-client)|              Post and fetch code easily from [**Hastebin**][hastebin]              |
 |     [**Logger**](#logger-manager)     |                   Log a styled and colored text into the console                   |
-|      [**Color**](#color-manager)      |    Transfer your simple text into a styled and modern one (Console support only)   |
+|      [**Color**](#styles-manager)     |    Transfer your simple text into a styled and modern one (Console support only)   |
 |         [**Util**](#utilities)        |                  A collection of easy to use and useful functions                  |
 
 ## Hastebin Client
