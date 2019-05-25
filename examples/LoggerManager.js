@@ -95,8 +95,8 @@ logger.success(scsSettings, 'image named "%s" with a total size of %s', image.na
 logger.error(errSettings, 'image named "%s" with a total size of %s', image.name, image.size);
 // Console > [PUBLISH ERROR]: Couldn't publish image named "logo.png" with a total size of 5MB at 20:00
 
-logger.info(settings, 'responed with %s status code and "%s" message', api.code, api.message);
-// Console > [PUBLISH API]: Publish API responed with 500 status code and "Internal Server Error" message | Last Check: 20/2/2020 - 20:00:00
+logger.info(settings, 'respond with %s status code and "%s" message', api.code, api.message);
+// Console > [PUBLISH API]: Publish API respond with 500 status code and "Internal Server Error" message | Last Check: 20/2/2020 - 20:00:00
 
 logger.log({ time: false }, 'log', 'no time');
 // Console > [LOG]: log no time
