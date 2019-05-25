@@ -1,9 +1,6 @@
-<h1 align="center">
-  <a href="https://tools-kit.js.org/">
-    <img width="500" src="src/logo.png" alt="Tools-Kit Logo">
-  </a>
-</h1>
 <p align="center">
+  <img width="500" src="src/logo.png" alt="Tools-Kit Logo">
+  <br>
   An easy to use, powerful and multi-functionality tools-kit library for NodeJS written entirely in JavaScript.
   <br>
   <br>
@@ -85,9 +82,9 @@ Read the [**Documentations**][documentations] for more information about each me
 |              Class  Name              |                                 Class Description                                  |
 |            ---------------            |   ------------------------------------------------------------------------------   |
 |[**Hastebin Client**](#hastebin-client)|              Post and fetch code easily from [**Hastebin**][hastebin]              |
-|     [**Logger**](#logger-manager)     |                   Log a styled and colored text into the console                   |
-|      [**Color**](#color-manager)      |    Transfer your simple text into a styled and modern one (Console support only)   |
-|         [**Util**](#utilities)        |                  A collection of easy to use and useful functions                  |
+| [**Logger Manager**](#logger-manager) |                   Log a styled and colored text into the console                   |
+| [**Styles Manager**](#styles-manager) |    Transfer your simple text into a styled and modern one (Console support only)   |
+|      [**Utilities**](#utilities)      |                  A collection of easy to use and useful functions                  |
 
 ## Hastebin Client
 
@@ -219,8 +216,8 @@ logger.success(scsSettings, 'image named "%s" with a total size of %s', image.na
 logger.error(errSettings, 'image named "%s" with a total size of %s', image.name, image.size);
 // Console > [PUBLISH ERROR]: Couldn't publish image named "logo.png" with a total size of 5MB at 20:00
 
-logger.info(settings, 'responed with %s status code and "%s" message', api.code, api.message);
-// Console > [PUBLISH API]: Publish API responed with 500 status code and "Internal Server Error" message | Last Check: 20/2/2020 - 20:00:00
+logger.info(settings, 'respond with %s status code and "%s" message', api.code, api.message);
+// Console > [PUBLISH API]: Publish API respond with 500 status code and "Internal Server Error" message | Last Check: 20/2/2020 - 20:00:00
 
 logger.log({ time: false }, 'log', 'no time');
 // Console > [LOG]: log no time
