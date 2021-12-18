@@ -8,18 +8,18 @@ const { stdout } = require('supports-color');
 
 // Assignments
 const hastebinURLS = {
-  regex: /(https?:\/\/www.hastebin.com|https?:\/\/hastebin.com|www.hastebin.com|hastebin.com)\/?/i,
-  documentsHttpsWWW: 'https://www.hastebin.com/documents',
-  documentsHttpWWW: 'http://www.hastebin.com/documents',
-  documentsHttps: 'https://hastebin.com/documents',
-  documentsHttp: 'http://hastebin.com/documents',
-  documentsWWW: 'www.hastebin.com/documents',
-  httpsWWW: 'https://www.hastebin.com',
-  httpWWW: 'http://www.hastebin.com',
-  https: 'https://hastebin.com',
-  http: 'http://hastebin.com',
-  www: 'www.hastebin.com',
-  none: 'hastebin.com'
+  regex: /(https?:\/\/www.toptal.com\/developers\/hastebin|https?:\/\/toptal.com\/developers\/hastebin|www.toptal.com\/developers\/hastebin|toptal.com\/developers\/hastebin)\/?/i,
+  documentsHttpsWWW: 'https://www.toptal.com/developers/hastebin/documents',
+  documentsHttpWWW: 'http://www.toptal.com/developers/hastebin/documents',
+  documentsHttps: 'https://toptal.com/developers/hastebin/documents',
+  documentsHttp: 'http://toptal.com/developers/hastebin/documents',
+  documentsWWW: 'www.toptal.com/developers/hastebin/documents',
+  httpsWWW: 'https://www.toptal.com/developers/hastebin',
+  httpWWW: 'http://www.toptal.com/developers/hastebin',
+  https: 'https://toptal.com/developers/hastebin',
+  http: 'http://toptal.com/developers/hastebin',
+  www: 'www.toptal.com/developers/hastebin',
+  none: 'toptal.com/developers/hastebin'
 };
 
 const backgrounds = {

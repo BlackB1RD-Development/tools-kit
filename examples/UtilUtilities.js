@@ -30,13 +30,13 @@ logger.log({ tag: 'HAS?' }, util.has(['name', 'test'], 'name'));
 logger.log({ tag: 'HAS?' }, util.has(['test', 'not test'], 'name'));
 // Console > [20/02/2020 - 00:00:00 | HAS?]: false
 
-logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'name'));
+logger.log({ tag: 'HAS?' }, util.has([{ name: 'not test' }, { name: 'test' }], 'name'));
 // Console > [20/02/2020 - 00:00:00 | HAS?]: true
 
-logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'test', 'name'));
+logger.log({ tag: 'HAS?' }, util.has([{ name: 'not test' }, { name: 'test' }], 'test', 'name'));
 // Console > [20/02/2020 - 00:00:00 | HAS?]: false
 
-logger.log({ tag: 'HAS?' }, util.has([{ 'name': 'not test' }, { 'name': 'test' }], 'name', 'test'));
+logger.log({ tag: 'HAS?' }, util.has([{ name: 'not test' }, { name: 'test' }], 'name', 'test'));
 // Console > [20/02/2020 - 00:00:00 | HAS?]: true
 
 logger.log({ tag: 'ARRAY?' }, util.isArray(new Array()));

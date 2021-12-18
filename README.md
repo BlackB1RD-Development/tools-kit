@@ -16,9 +16,6 @@
   <a href="https://www.npmjs.com/package/tools-kit">
     <img src="https://img.shields.io/node/v/tools-kit.svg?style=flat-square" alt="node" />
   </a>
-  <a href="https://david-dm.org/BlackB1RD-Development/tools-kit">
-    <img src="https://david-dm.org/BlackB1RD-Development/tools-kit.svg?style=flat-square" alt="dependencies" />
-  </a>
   <a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/LICENSE.md">
     <img src="https://img.shields.io/npm/l/tools-kit.svg?style=flat-square" alt="license" />
   </a>
@@ -541,7 +538,7 @@ See the [**Changes Log**][changelog] for more information about each update.
 - [**moment**][moment] — A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.
 - [**figlet**][figlet] — Creates ASCII Art from text. A full implementation of the FIGfont spec.
 
-[hastebin]:https://hastebin.com/about.md
+[hastebin]:https://toptal.com/developers/hastebin/about.md
 [changelog]:https://github.com/BlackB1RD-Development/tools-kit/blob/master/CHANGELOG.md
 [contributors]:https://github.com/BlackB1RD-Development/tools-kit/contributors
 [documentations]:https://tools-kit.js.org/api
