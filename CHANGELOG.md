@@ -5,3 +5,4 @@
 * [[`v1.2`](https://github.com/BlackB1RD-Development/tools-kit/tree/v1.2)] - [version] 1.2
 * [[`v1.3`](https://github.com/BlackB1RD-Development/tools-kit/tree/v1.3)] - [version] 1.3
 * [[`v1.4`](https://github.com/BlackB1RD-Development/tools-kit/tree/v1.4)] - [version] 1.4
+* [[`v1.5`](https://github.com/BlackB1RD-Development/tools-kit/tree/v1.5)] - [version] 1.5

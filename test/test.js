@@ -84,9 +84,9 @@ describe('Util', () => {
 
   describe('#randomItem', () => {
     it('should return true (Testing a random item from this list: cat, dog, fish)', () => {
-      const testArr = ['cat', 'dog', 'fish'];
+      const testArray = ['cat', 'dog', 'fish'];
 
-      assert.deepStrictEqual(testArr.includes(util.randomItem(testArr)), true);
+      assert.deepStrictEqual(testArray.includes(util.randomItem(testArray)), true);
     });
 
     it('should throw an Error (Testing an Object as the Array parameter)', () => {
@@ -463,9 +463,7 @@ describe('Logger', () => {
           type: 'info',
           time: true,
           tag: true,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'important'), logger);
     });
@@ -480,9 +478,7 @@ describe('Logger', () => {
           type: 'info',
           time: false,
           tag: false,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'important'), logger);
     });
@@ -495,9 +491,7 @@ describe('Logger', () => {
         type: 'info',
         time: true,
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'important'), logger);
     });
 
@@ -509,9 +503,7 @@ describe('Logger', () => {
         type: 'info',
         time: false,
         tag: false,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'important'), logger);
     });
   });
@@ -531,9 +523,7 @@ describe('Logger', () => {
           type: 'info',
           time: true,
           tag: true,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'success'), logger);
     });
@@ -548,9 +538,7 @@ describe('Logger', () => {
           type: 'info',
           time: false,
           tag: false,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'success'), logger);
     });
@@ -563,9 +551,7 @@ describe('Logger', () => {
         type: 'info',
         time: true,
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'success'), logger);
     });
 
@@ -577,9 +563,7 @@ describe('Logger', () => {
         type: 'info',
         time: false,
         tag: false,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'success'), logger);
     });
   });
@@ -599,9 +583,7 @@ describe('Logger', () => {
           type: 'info',
           time: true,
           tag: true,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'fatal'), logger);
     });
@@ -616,9 +598,7 @@ describe('Logger', () => {
           type: 'info',
           time: false,
           tag: false,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'fatal'), logger);
     });
@@ -631,9 +611,7 @@ describe('Logger', () => {
         type: 'info',
         time: true,
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'fatal'), logger);
     });
 
@@ -645,9 +623,7 @@ describe('Logger', () => {
         type: 'info',
         time: false,
         tag: false,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'fatal'), logger);
     });
   });
@@ -667,9 +643,7 @@ describe('Logger', () => {
           type: 'info',
           time: true,
           tag: true,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'trace'), logger);
     });
@@ -684,9 +658,7 @@ describe('Logger', () => {
           type: 'info',
           time: false,
           tag: false,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'trace'), logger);
     });
@@ -699,9 +671,7 @@ describe('Logger', () => {
         type: 'info',
         time: true,
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'trace'), logger);
     });
 
@@ -713,9 +683,7 @@ describe('Logger', () => {
         type: 'info',
         time: false,
         tag: false,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'trace'), logger);
     });
   });
@@ -735,9 +703,7 @@ describe('Logger', () => {
           type: 'info',
           time: true,
           tag: true,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'error'), logger);
     });
@@ -752,9 +718,7 @@ describe('Logger', () => {
           type: 'info',
           time: false,
           tag: false,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'error'), logger);
     });
@@ -767,9 +731,7 @@ describe('Logger', () => {
         type: 'info',
         time: true,
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'error'), logger);
     });
 
@@ -781,9 +743,7 @@ describe('Logger', () => {
         type: 'info',
         time: false,
         tag: false,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'error'), logger);
     });
   });
@@ -803,9 +763,7 @@ describe('Logger', () => {
           type: 'debug',
           time: true,
           tag: true,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'debug'), logger);
     });
@@ -820,9 +778,7 @@ describe('Logger', () => {
           type: 'debug',
           time: false,
           tag: false,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'debug'), logger);
     });
@@ -835,9 +791,7 @@ describe('Logger', () => {
         type: 'debug',
         time: true,
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'debug'), logger);
     });
 
@@ -849,9 +803,7 @@ describe('Logger', () => {
         type: 'debug',
         time: false,
         tag: false,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'debug'), logger);
     });
   });
@@ -871,9 +823,7 @@ describe('Logger', () => {
           type: 'info',
           time: true,
           tag: true,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'info'), logger);
     });
@@ -888,9 +838,7 @@ describe('Logger', () => {
           type: 'info',
           time: false,
           tag: false,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'info'), logger);
     });
@@ -903,9 +851,7 @@ describe('Logger', () => {
         type: 'info',
         time: true,
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'info'), logger);
     });
 
@@ -917,9 +863,7 @@ describe('Logger', () => {
         type: 'info',
         time: false,
         tag: false,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'info'), logger);
     });
   });
@@ -939,9 +883,7 @@ describe('Logger', () => {
           type: 'warn',
           time: true,
           tag: true,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'warn'), logger);
     });
@@ -956,9 +898,7 @@ describe('Logger', () => {
           type: 'warn',
           time: false,
           tag: false,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'warn'), logger);
     });
@@ -971,9 +911,7 @@ describe('Logger', () => {
         type: 'warn',
         time: true,
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'warn'), logger);
     });
 
@@ -985,9 +923,7 @@ describe('Logger', () => {
         type: 'warn',
         time: false,
         tag: false,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'warn'), logger);
     });
   });
@@ -1013,9 +949,7 @@ describe('Logger', () => {
             type: 'log',
             time: 'MM/DD/YY',
             tag: true,
-            format: (options) => {
-              return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-            }
+            format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
           }
         }
       }, 'Boo'), logger);
@@ -1032,9 +966,7 @@ describe('Logger', () => {
             type: 'log',
             time: 'MM/DD/YY',
             tag: true,
-            format: (options) => {
-              return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-            }
+            format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
           }
         }
       }, 'i'), logger);
@@ -1051,9 +983,7 @@ describe('Logger', () => {
             type: 'log',
             time: false,
             tag: false,
-            format: (options) => {
-              return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-            }
+            format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
           }
         }
       }, 'i'), logger);
@@ -1067,9 +997,7 @@ describe('Logger', () => {
         type: 'log',
         time: 'MM/DD/YY',
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'i'), logger);
     });
 
@@ -1081,9 +1009,7 @@ describe('Logger', () => {
         type: 'log',
         time: false,
         tag: false,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'i'), logger);
     });
   });
@@ -1103,9 +1029,7 @@ describe('Logger', () => {
           type: 'log',
           time: 'MM/DD/YY',
           tag: true,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'log'), logger);
     });
@@ -1120,9 +1044,7 @@ describe('Logger', () => {
           type: 'log',
           time: false,
           tag: false,
-          format: (options) => {
-            return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-          }
+          format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
         }
       }, 'log'), logger);
     });
@@ -1135,9 +1057,7 @@ describe('Logger', () => {
         type: 'log',
         time: 'MM/DD/YY',
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'log'), logger);
     });
 
@@ -1149,32 +1069,26 @@ describe('Logger', () => {
         type: 'log',
         time: false,
         tag: false,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }, 'log'), logger);
     });
   });
 
   describe('#once', () => {
-    it('should return the listeners count', () => {
-      assert.deepStrictEqual(logger.once('log', (options) => { return options; }).listenerCount('log'), 1);
-    });
+    it('should return the listeners count', () => assert.deepStrictEqual(logger.once('log', options => options).listenerCount('log'), 1));
 
     it('should throw an Error (Testing with options property but Array value)', () => {
-      let message = `test is an invalid event name.\nAvailable events: ${logger.events.join(', ')}`;
+      const message = `test is an invalid event name.\nAvailable events: ${logger.events.join(', ')}`;
 
       assert.throws(() => logger.once('test'), message);
     });
   });
 
   describe('#on', () => {
-    it('should return the listeners count', () => {
-      assert.deepStrictEqual(logger.on('log', (options) => { return options; }).listenerCount('log'), 2);
-    });
+    it('should return the listeners count', () => assert.deepStrictEqual(logger.on('log', options => options).listenerCount('log'), 2));
 
     it('should throw an Error (Testing with options property but Array value)', () => {
-      let message = `test is an invalid event name.\nAvailable events: ${logger.events.join(', ')}`;
+      const message = `test is an invalid event name.\nAvailable events: ${logger.events.join(', ')}`;
 
       assert.throws(() => logger.on('test'), message);
     });
@@ -1201,23 +1115,11 @@ describe('Logger', () => {
 
 describe('Hastebin', () => {
   describe('#post', () => {
-    it('should return a Hastebin Object (Testing with full extension = .js)', async(done) => {
-      return await hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
-        .then(done())
-        .catch(error => done(error));
-    });
+    it('should return a Hastebin Object (Testing with full extension = .js)', done => hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js').then(done()).catch(error => done(error)));
 
-    it('should return a Hastebin Object (Testing with half extension = js)', async(done) => {
-      return await hastebin.post('var test = \'test\';\n\nconsole.log(test);', 'js')
-        .then(done())
-        .catch(error => done(error));
-    });
+    it('should return a Hastebin Object (Testing with half extension = js)', done => hastebin.post('var test = \'test\';\n\nconsole.log(test);', 'js').then(done()).catch(error => done(error)));
 
-    it('should return a Hastebin Object (Testing without extension)', async(done) => {
-      return await hastebin.post('var test = \'test\';\n\nconsole.log(test);')
-        .then(done())
-        .catch(error => done(error));
-    });
+    it('should return a Hastebin Object (Testing without extension)', done => hastebin.post('var test = \'test\';\n\nconsole.log(test);').then(done()).catch(error => done(error)));
 
     it('should throw an Error (Testing without the data parameter)', () => {
       assert.throws(() => hastebin.post(null), 'The data parameter is required.');
@@ -1225,17 +1127,9 @@ describe('Hastebin', () => {
   });
 
   describe('#get', () => {
-    it('should return a Hastebin Object (Testing with extension)', async(done) => {
-      return await hastebin.get('https://hastebin.com/about.md')
-        .then(done())
-        .catch(error => done(error));
-    });
+    it('should return a Hastebin Object (Testing with extension)', done => hastebin.get('https://www.toptal.com/developers/hastebin/documents/evodehoruw.js').then(done()).catch(error => done(error)));
 
-    it('should return a Hastebin Object (Testing without extension)', async(done) => {
-      return await hastebin.get('https://hastebin.com/about')
-        .then(done())
-        .catch(error => done(error));
-    });
+    it('should return a Hastebin Object (Testing without extension)', done => hastebin.get('https://www.toptal.com/developers/hastebin/documents/evodehoruw').then(done()).catch(error => done(error)));
 
     it('should throw an Error (Testing without the URL parameter)', () => {
       assert.throws(() => hastebin.get(null), `The url parameter must be a String value, not ${typeof null}.`);

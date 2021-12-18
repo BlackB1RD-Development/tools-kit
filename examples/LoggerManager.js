@@ -47,21 +47,18 @@ logger.figlet('FIGLET', 'LOG');
 const scsSettings = {
     time: 'H:mm',
     tag: 'PUBLISH SUCCESS',
-    format: (options) => {
-      return `[${options.tag}]: Published ${options.content} successfully at ${options.time}`;
-    }
-  }, errSettings = {
+    format: options => `[${options.tag}]: Published ${options.content} successfully at ${options.time}`
+  },
+  errorSettings = {
     time: 'H:mm',
     tag: 'PUBLISH ERROR',
-    format: (options) => {
-      return `[${options.tag}]: Couldn't publish ${options.content} at ${options.time}`;
-    }
-  }, settings = {
+    format: options => `[${options.tag}]: Couldn't publish ${options.content} at ${options.time}`
+  },
+  settings = {
     tag: 'PUBLISH API',
-    format: (options) => {
-      return `[${options.tag}]: Publish API ${options.content} | Last Check: ${options.time}`;
-    }
-  }, figSettings = {
+    format: options => `[${options.tag}]: Publish API ${options.content} | Last Check: ${options.time}`
+  },
+  figSettings = {
     figlet: {
       font: 'Ghost',
       verticalLayout: 'default',
@@ -76,15 +73,15 @@ const scsSettings = {
         type: 'log',
         time: 'MM/DD/YY',
         tag: true,
-        format: (options) => {
-          return !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`;
-        }
+        format: options => !options.time && !options.tag ? options.content : !options.time ? `[${options.tag}]: ${options.content}` : !options.tag ? `[${options.time}]: ${options.content}` : `[${options.time} | ${options.tag}]: ${options.content}`
       }
     }
-  }, image = {
+  },
+  image = {
     name: 'logo.png',
     size: '5MB'
-  }, api = {
+  },
+  api = {
     message: 'Internal Server Error',
     code: '500'
   };
@@ -92,7 +89,7 @@ const scsSettings = {
 logger.success(scsSettings, 'image named "%s" with a total size of %s', image.name, image.size);
 // Console > [PUBLISH SUCCESS]: Published image named "logo.png" with a total size of 5MB successfully at 20:00
 
-logger.error(errSettings, 'image named "%s" with a total size of %s', image.name, image.size);
+logger.error(errorSettings, 'image named "%s" with a total size of %s', image.name, image.size);
 // Console > [PUBLISH ERROR]: Couldn't publish image named "logo.png" with a total size of 5MB at 20:00
 
 logger.info(settings, 'respond with %s status code and "%s" message', api.code, api.message);

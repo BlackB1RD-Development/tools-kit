@@ -7,21 +7,21 @@
 const { logger, hastebin } = require('..');
 
 hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
-  .then(async postRes => {
-    logger.success({ tag: 'POST RES' }, postRes);
+  .then(async postResponse => {
+    logger.success({ tag: 'POST RES' }, postResponse);
     // Console > [20/02/2020 - 00:00:00 | POST RES]: HastebinObject{}
 
-    await hastebin.get(postRes.link)
-      .then(getRes => {
-        logger.success({ tag: 'GET RES' }, getRes);
+    await hastebin.get(postResponse.link)
+      .then(getResponse => {
+        logger.success({ tag: 'GET RES' }, getResponse);
         // Console > [20/02/2020 - 00:00:00 | GET RES]: HastebinObject{}
       })
-      .catch(getErr => {
-        logger.error({ tag: 'GET ERROR' }, getErr);
+      .catch(getError => {
+        logger.error({ tag: 'GET ERROR' }, getError);
         // Console > [20/02/2020 - 00:00:00 | GET ERROR]: Error: Get Error
       });
   })
-  .catch(postErr => {
-    logger.error({ tag: 'POST ERROR' }, postErr);
+  .catch(postError => {
+    logger.error({ tag: 'POST ERROR' }, postError);
     // Console > [20/02/2020 - 00:00:00 | POST ERROR]: Error: Post Error
   });
