@@ -1,11 +1,7 @@
 
-<html><head></head><body><h1 align="center">
-  <a href="https://tools-kit.js.org/">
-    <img width="500" src="src/logo.png" alt="Tools-Kit Logo" style="max-width: 100%;">
-  </a>
-</h1>
-<hr />
-<p align="center">
+<html><head></head><body><p align="center">
+  <img width="500" src="src/logo.png" alt="Tools-Kit Logo" style="max-width: 100%;">
+  <br>
   An easy to use, powerful and multi-functionality tools-kit library for NodeJS written entirely in JavaScript.
   <br>
   <br>
@@ -20,9 +16,6 @@
   </a>
   <a href="https://www.npmjs.com/package/tools-kit">
     <img src="https://img.shields.io/node/v/tools-kit.svg?style=flat-square" alt="node" style="max-width: 100%;">
-  </a>
-  <a href="https://david-dm.org/BlackB1RD-Development/tools-kit">
-    <img src="https://david-dm.org/BlackB1RD-Development/tools-kit.svg?style=flat-square" alt="dependencies" style="max-width: 100%;">
   </a>
   <a href="https://github.com/BlackB1RD-Development/tools-kit/blob/master/LICENSE.md">
     <img src="https://img.shields.io/npm/l/tools-kit.svg?style=flat-square" alt="license" style="max-width: 100%;">
@@ -50,7 +43,7 @@
 <h1 id="features">Features</h1>
 <hr />
 <ul>
-<li>A <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a> Client that can post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a>.</li>
+<li>A <a href="https://toptal.com/developers/hastebin/about.md"><strong>Hastebin</strong></a> Client that can post and fetch code easily from <a href="https://toptal.com/developers/hastebin/about.md"><strong>Hastebin</strong></a>.</li>
 <li>A Logger Manager that can log a styled and colored text into the console.</li>
 <li>A Styles Manager that can transfer your simple text into a styled and modern one.</li>
 <li>A collection of easy to use and useful functions.</li>
@@ -61,13 +54,16 @@
 <hr />
 <h2 id="npm-through-github">NPM Through GitHub</h2>
 <hr />
-<pre><code class="console">npm install BlackB1RD-Development/tools-kit --save</code></pre>
+<pre><code class="lang-console">npm install BlackB1RD-Development/tools-kit --save
+</code></pre>
 <h2 id="npm">NPM</h2>
 <hr />
-<pre><code class="console">npm install tools-kit --save</code></pre>
+<pre><code class="lang-console">npm install tools-kit --save
+</code></pre>
 <h2 id="yarn">Yarn</h2>
 <hr />
-<pre><code class="console">yarn add tools-kit</code></pre>
+<pre><code class="lang-console">yarn add tools-kit
+</code></pre>
 <h1 id="documentations">Documentations</h1>
 <hr />
 <p>Read the <a href="https://tools-kit.js.org/api"><strong>Documentations</strong></a> for more information about each method.</p>
@@ -81,27 +77,29 @@
 <th>Class Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><a href="#hastebin-client"><strong>Hastebin Client</strong></a></td>
-<td>Post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a></td>
+<td>Post and fetch code easily from <a href="https://toptal.com/developers/hastebin/about.md"><strong>Hastebin</strong></a></td>
 </tr>
 <tr>
-<td><a href="#logger-manager"><strong>Logger</strong></a></td>
+<td><a href="#logger-manager"><strong>Logger Manager</strong></a></td>
 <td>Log a styled and colored text into the console</td>
 </tr>
 <tr>
-<td><a href="#color-manager"><strong>Color</strong></a></td>
+<td><a href="#styles-manager"><strong>Styles Manager</strong></a></td>
 <td>Transfer your simple text into a styled and modern one (Console support only)</td>
 </tr>
 <tr>
-<td><a href="#utilities"><strong>Util</strong></a></td>
+<td><a href="#utilities"><strong>Utilities</strong></a></td>
 <td>A collection of easy to use and useful functions</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <h2 id="hastebin-client">Hastebin Client</h2>
 <hr />
-<p>With the <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a> Client you can post and fetch code easily from <a href="https://hastebin.com/about.md"><strong>Hastebin</strong></a>.</p>
-<pre><code class="javascript">const { logger, hastebin } = require('tools-kit');
+<p>With the <a href="https://toptal.com/developers/hastebin/about.md"><strong>Hastebin</strong></a> Client you can post and fetch code easily from <a href="https://toptal.com/developers/hastebin/about.md"><strong>Hastebin</strong></a>.</p>
+<pre><code class="lang-javascript">const { logger, hastebin } = require('tools-kit');
 
 hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
   .then(async postRes =&gt; {
@@ -121,11 +119,12 @@ hastebin.post('var test = \'test\';\n\nconsole.log(test);', '.js')
   .catch(postErr =&gt; {
     logger.error({ tag: 'POST ERROR' }, postErr);
     // Console &gt; [20/02/2020 - 00:00:00 | POST ERROR]: Error: Post Error
-  });</code></pre>
+  });
+</code></pre>
 <h2 id="logger-manager">Logger Manager</h2>
 <hr />
 <p>With the Logger Manager you can log a styled and colored text into the console with pre made logging settings in each method.</p>
-<pre><code class="javascript">const { logger } = require('tools-kit');
+<pre><code class="lang-javascript">const { logger } = require('tools-kit');
 
 logger.log('content');
 // Console &gt; [20/02/2020 - 00:00:00 | LOG]: content
@@ -162,9 +161,10 @@ logger.figlet('FIGLET', 'LOG');
   Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |  _|  | | |_| | |___| |___  | |   | |__| |_| | |_| |
   Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:  |_|   |___\____|_____|_____| |_|   |_____\___/ \____|
   Console &gt; [20/02/2020 - 00:00:00 | FIGLET]:
-*/</code></pre>
+*/
+</code></pre>
 <p>Using custom options:</p>
-<pre><code class="javascript">const { logger } = require('tools-kit');
+<pre><code class="lang-javascript">const { logger } = require('tools-kit');
 
 // Support custom logging options and rewriting of existing methods settings
 const scsSettings = {
@@ -218,8 +218,8 @@ logger.success(scsSettings, 'image named "%s" with a total size of %s', image.na
 logger.error(errSettings, 'image named "%s" with a total size of %s', image.name, image.size);
 // Console &gt; [PUBLISH ERROR]: Couldn't publish image named "logo.png" with a total size of 5MB at 20:00
 
-logger.info(settings, 'responed with %s status code and "%s" message', api.code, api.message);
-// Console &gt; [PUBLISH API]: Publish API responed with 500 status code and "Internal Server Error" message | Last Check: 20/2/2020 - 20:00:00
+logger.info(settings, 'respond with %s status code and "%s" message', api.code, api.message);
+// Console &gt; [PUBLISH API]: Publish API respond with 500 status code and "Internal Server Error" message | Last Check: 20/2/2020 - 20:00:00
 
 logger.log({ time: false }, 'log', 'no time');
 // Console &gt; [LOG]: log no time
@@ -257,12 +257,13 @@ logger // Support chain logging
   Console &gt; [20/02/2020 - 00:00:00 | FIRST LOG]: First content
   Console &gt; [20/02/2020 - 00:00:00 | SECOND LOG]: Second content
   Console &gt; [20/02/2020 - 00:00:00 | THIRD LOG]: Third content
-*/</code></pre>
+*/
+</code></pre>
 <p>See more backgrounds, colors, styles &amp; consoles types by clicking <a href="#logger-options"><strong>here</strong></a></p>
 <h2 id="styles-manager">Styles Manager</h2>
 <hr />
 <p>With the Styles Manager you can transfer your simple text into a styled and modern one.</p>
-<pre><code class="javascript">const { logger, style } = require('tools-kit');
+<pre><code class="lang-javascript">const { logger, style } = require('tools-kit');
 
 logger.log({ tag: 'STYLE' },
   styles.bgGreen('testing %s', 'background'),
@@ -312,9 +313,10 @@ const colors = [
 ];
 
 logger.log({ tag: 'CUSTOM MAP' }, styles.map('custom map styled-text', colors), 'normal text');
-// Console &gt; [20/02/2020 - 00:00:00 | CUSTOM MAP]: custom map styled-text normal text</code></pre>
+// Console &gt; [20/02/2020 - 00:00:00 | CUSTOM MAP]: custom map styled-text normal text
+</code></pre>
 <p>Using pre-made cool colors maps:</p>
-<pre><code class="javascript">const { logger, color } = require('tools-kit');
+<pre><code class="lang-javascript">const { logger, color } = require('tools-kit');
 
 logger.log({ tag: 'RAINBOW' }, styles.rainbow('rainbow styled-text'), 'normal text');
 // Console &gt; [20/02/2020 - 00:00:00 | RAINBOW]: rainbow styled-text normal text
@@ -323,11 +325,12 @@ logger.log({ tag: 'RANDOM' }, styles.random('random styled-text'), 'normal text'
 // Console &gt; [20/02/2020 - 00:00:00 | RANDOM]: random styled-text normal text
 
 logger.log({ tag: 'ZEBRA' }, styles.zebra('zebra styled-text'), 'normal text');
-// Console &gt; [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text normal text</code></pre>
+// Console &gt; [20/02/2020 - 00:00:00 | ZEBRA]: zebra styled-text normal text
+</code></pre>
 <h2 id="utilities">Utilities</h2>
 <hr />
 <p>With Tools-Kit Utilities you can use the functions that everyone uses in one simple line.</p>
-<pre><code class="javascript">const { logger, util } = require('tools-kit');
+<pre><code class="lang-javascript">const { logger, util } = require('tools-kit');
 
 logger.log({ tag: 'HAS?' }, util.has({}, 'name'));
 // Console &gt; [20/02/2020 - 00:00:00 | HAS?]: false
@@ -393,7 +396,8 @@ logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10));
 // Console &gt; [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 8
 
 logger.log({ tag: 'RANDOM NUMBER' }, util.randomNumber(5, 10, false)); // Default is true
-// Console &gt; [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 9.478004123859458</code></pre>
+// Console &gt; [20/02/2020 - 00:00:00 | RANDOM NUMBER]: 9.478004123859458
+</code></pre>
 <h2 id="logger-options">Logger Options</h2>
 <hr />
 <h3 id="optionsbackground">options.background</h3>
