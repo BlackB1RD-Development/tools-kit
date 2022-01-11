@@ -8,7 +8,7 @@ const { stdout } = require('supports-color');
 
 // Assignments
 const hastebinURLS = {
-  regex: /(https?:\/\/www.toptal.com\/developers\/hastebin|https?:\/\/toptal.com\/developers\/hastebin|www.toptal.com\/developers\/hastebin|toptal.com\/developers\/hastebin)\/?/i,
+  regex: /(https?:\/\/www\.toptal.com\/developers\/hastebin|https?:\/\/toptal.com\/developers\/hastebin|www\.toptal.com\/developers\/hastebin|toptal.com\/developers\/hastebin)\/?/i,
   documentsHttpsWWW: 'https://www.toptal.com/developers/hastebin/documents',
   documentsHttpWWW: 'http://www.toptal.com/developers/hastebin/documents',
   documentsHttps: 'https://toptal.com/developers/hastebin/documents',
